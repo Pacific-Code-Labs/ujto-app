@@ -1,0 +1,40 @@
+{
+  "welcome": { "en": "Welcome back, {{name}}", "es": "Hola de nuevo, {{name}}" },
+  "subtitle": {
+    "en": "Upload a video or audio file and get its transcript in minutes.",
+    "es": "Sube un archivo de video o audio y obtén su transcripción en minutos."
+  },
+  "tips": [
+    {
+      "iconName": "upload",
+      "title": { "en": "Upload the file", "es": "Sube el archivo" },
+      "body": {
+        "en": "Uploading is the most reliable way: it works for any video you have on your device.",
+        "es": "Subir el archivo es lo más confiable: funciona con cualquier video que tengas en tu dispositivo."
+      }
+    },
+    {
+      "iconName": "laptop",
+      "title": { "en": "Links from YouTube", "es": "Enlaces de YouTube" },
+      "body": {
+        "en": "YouTube often blocks our servers. The **Ujtö̀ desktop app** downloads the audio from your computer and sends it for you.",
+        "es": "YouTube suele bloquear nuestros servidores. La **app de escritorio de Ujtö̀** descarga el audio desde tu computadora y lo envía por ti."
+      }
+    },
+    {
+      "iconName": "shield",
+      "title": { "en": "Your files are deleted", "es": "Tus archivos se eliminan" },
+      "body": {
+        "en": "We delete every uploaded file as soon as its transcription finishes. Only the text stays in your history.",
+        "es": "Eliminamos cada archivo subido en cuanto termina su transcripción. Solo el texto queda en tu historial."
+      }
+    }
+  ],
+  "empty": {
+    "title": { "en": "No transcriptions yet", "es": "Aún no tienes transcripciones" },
+    "body": {
+      "en": "Your first transcript is one upload away.",
+      "es": "Tu primera transcripción está a una subida de distancia."
+    }
+  }
+}

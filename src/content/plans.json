@@ -1,0 +1,33 @@
+{
+  "items": [
+    {
+      "code": "free",
+      "status": "available",
+      "name": { "en": "Free", "es": "Gratis" },
+      "price": "$0",
+      "period": { "en": "forever", "es": "para siempre" },
+      "features": [
+        { "en": "3 transcriptions per day", "es": "3 transcripciones por día" },
+        { "en": "Up to 10 minutes per video", "es": "Hasta 10 minutos por video" },
+        { "en": "Uploads up to 500 MB", "es": "Archivos de hasta 500 MB" },
+        { "en": "Standard accuracy", "es": "Precisión estándar" },
+        { "en": "Download as TXT", "es": "Descarga en TXT" }
+      ]
+    },
+    {
+      "code": "pro",
+      "status": "coming-soon",
+      "name": { "en": "Pro", "es": "Pro" },
+      "price": "$15",
+      "period": { "en": "per month", "es": "por mes" },
+      "features": [
+        { "en": "Unlimited transcriptions", "es": "Transcripciones ilimitadas" },
+        { "en": "Up to 2 hours per video", "es": "Hasta 2 horas por video" },
+        { "en": "Uploads up to 2 GB", "es": "Archivos de hasta 2 GB" },
+        { "en": "Enhanced accuracy (larger model)", "es": "Mayor precisión (modelo más grande)" },
+        { "en": "TXT, SRT and VTT downloads", "es": "Descargas en TXT, SRT y VTT" },
+        { "en": "Priority processing and email support", "es": "Procesamiento prioritario y soporte por correo" }
+      ]
+    }
+  ]
+}

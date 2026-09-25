@@ -1,0 +1,20 @@
+{
+  "status": "coming-soon",
+  "title": { "en": "Ujtö̀ for desktop", "es": "Ujtö̀ para escritorio" },
+  "description": {
+    "en": "The full Ujtö̀ dashboard in a desktop app, plus one thing the web can't do: paste a YouTube link and it downloads the audio **from your own computer** and sends it for transcription.",
+    "es": "Todo el panel de Ujtö̀ en una app de escritorio, más algo que la web no puede hacer: pega un enlace de YouTube y descarga el audio **desde tu propia computadora** y lo envía a transcribir."
+  },
+  "releaseBaseUrl": "https://github.com/Pacific-Code-Labs/ujto-desktop/releases/latest/download/",
+  "platforms": [
+    { "os": "mac", "iconName": "laptop", "file": "Ujto-mac-arm64.dmg", "label": { "en": "macOS (Apple silicon)", "es": "macOS (Apple silicon)" } },
+    { "os": "mac", "iconName": "laptop", "file": "Ujto-mac-x64.dmg", "label": { "en": "macOS (Intel)", "es": "macOS (Intel)" } },
+    { "os": "windows", "iconName": "monitor", "file": "Ujto-windows-x64.exe", "label": { "en": "Windows 10/11", "es": "Windows 10/11" } },
+    { "os": "linux", "iconName": "monitor", "file": "Ujto-linux-x64.AppImage", "label": { "en": "Linux (AppImage)", "es": "Linux (AppImage)" } },
+    { "os": "linux", "iconName": "monitor", "file": "Ujto-linux-amd64.deb", "label": { "en": "Linux (.deb)", "es": "Linux (.deb)" } }
+  ],
+  "requirements": [
+    { "en": "macOS 12+, Windows 10/11 (WebView2) or Linux with WebKitGTK 4.1", "es": "macOS 12+, Windows 10/11 (WebView2) o Linux con WebKitGTK 4.1" },
+    { "en": "Sign in with the same Ujtö̀ account", "es": "Inicia sesión con la misma cuenta de Ujtö̀" }
+  ]
+}

@@ -1,0 +1,526 @@
+{
+  "auth": {
+    "register": {
+      "title": "Create Account",
+      "description": "Get started with Ujtö̀ today",
+      "username": "Username",
+      "usernamePlaceholder": "Choose a unique username",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Enter your last name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "password": "Password",
+      "passwordPlaceholder": "Create a secure password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "submit": "Create Account",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "success": {
+        "title": "Account Created",
+        "description": "Please check your email for verification code"
+      },
+      "error": "Failed to create account",
+      "steps": {
+        "personalInfo": "Personal Info",
+        "personalInfoDesc": "Basic information",
+        "security": "Security",
+        "securityDesc": "Create password",
+        "verify": "Verify",
+        "verifyDesc": "Email verification"
+      },
+      "step1": {
+        "title": "Personal Info",
+        "subtitle": "Basic information"
+      },
+      "step2": {
+        "title": "Security",
+        "subtitle": "Create password"
+      },
+      "step3": {
+        "title": "Verify",
+        "subtitle": "Email verification"
+      },
+      "continue": "Continue to Password",
+      "back": "Back",
+      "createAccount": "Create Account",
+      "completeStep1": "Please complete step 1 first",
+      "complete": {
+        "title": "Registration Complete",
+        "description": "Welcome! Your account is ready."
+      }
+    },
+    "verify": {
+      "title": "Verify Email",
+      "description": "We sent a verification code to",
+      "code": "Verification Code",
+      "codePlaceholder": "123456",
+      "submit": "Verify Email",
+      "noCode": "Didn't receive the code?",
+      "resendCode": "Resend Code",
+      "backToRegister": "Back to Register",
+      "success": {
+        "title": "Email Verified",
+        "description": "Welcome to Ujtö̀!"
+      },
+      "error": "Invalid verification code",
+      "resend": {
+        "success": {
+          "title": "Code Sent",
+          "description": "A new verification code has been sent to your email"
+        },
+        "error": "Failed to resend verification code"
+      }
+    },
+    "login": {
+      "title": "Welcome Back",
+      "description": "Sign in to your Ujtö̀ account",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "submit": "Sign In",
+      "forgotPassword": "Forgot Password",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "success": {
+        "title": "Welcome Back",
+        "description": "Successfully signed in"
+      },
+      "error": "Invalid email or password"
+    },
+    "forgot": {
+      "title": "Forgot Password",
+      "description": "Enter your email address and we'll send you a link to reset your password",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "submit": "Send Reset Link",
+      "sending": "Sending",
+      "backToLogin": "Back to Login",
+      "success": {
+        "title": "Check Your Email",
+        "description": "If an account with that email exists, a password reset link has been sent."
+      },
+      "error": "Failed to send reset link"
+    },
+    "reset": {
+      "title": "Reset Password",
+      "description": "Enter your new password",
+      "newPassword": "New Password",
+      "newPasswordPlaceholder": "Enter your new password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your new password",
+      "submit": "Reset Password",
+      "resetting": "Resetting",
+      "backToLogin": "Back to Login",
+      "success": {
+        "title": "Password Reset Successfully",
+        "description": "Your password has been reset. You can now log in with your new password."
+      },
+      "loginNow": "Login Now",
+      "error": "Failed to reset password",
+      "invalidLink": "Invalid or expired reset link",
+      "requestNewLink": "Request New Reset Link",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
+    },
+    "logout": {
+      "title": "Signed Out",
+      "description": "You have been successfully signed out."
+    },
+    "loginRequired": "Sign in required",
+    "loginMessage": "Please sign in to start transcribing your videos",
+    "signIn": "Sign In"
+  },
+  "common": {
+    "back": "Back",
+    "backToHome": "Back to Home",
+    "logout": "Sign Out",
+    "upgrade": "Upgrade",
+    "upgradeForUnlimited": "Upgrade for unlimited transcriptions.",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "refresh": "Refresh",
+    "comingSoon": "Coming Soon"
+  },
+  "dashboard": {
+    "welcomeBack": "Welcome back, {{name}}!",
+    "description": "Manage your transcriptions and account settings",
+    "accountOverview": "Account Overview",
+    "plan": "Plan",
+    "free": "Free",
+    "pro": "Pro",
+    "upgrade": "Upgrade",
+    "dailyUsage": "Daily Usage",
+    "dailyLimitReached": "Daily limit reached",
+    "totalTranscriptions": "Total Transcriptions",
+    "memberSince": "Member Since"
+  },
+  "download": {
+    "button": "Download",
+    "notReady": "Transcript not ready",
+    "txt": "Text (.txt)",
+    "srt": "Subtitles (.srt)",
+    "vtt": "Web subtitles (.vtt)",
+    "proOnly": "Pro",
+    "proHint": "Available on the Pro plan",
+    "failed": "Download failed"
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "description": "The application encountered an error and couldn't load properly.",
+    "details": "Error Details",
+    "reload": "Reload Page"
+  },
+  "form": {
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "continue": "Continue to Payment",
+    "subscribe": "Subscribe Now",
+    "complete": "Complete Payment",
+    "setupError": "Setup Error",
+    "paymentError": "Payment Setup Error",
+    "tryAgain": "Try Again",
+    "backHome": "Back to Home",
+    "back": "Back"
+  },
+  "history": {
+    "title": "Recent Transcriptions",
+    "empty": {
+      "title": "No transcriptions yet",
+      "description": "Your transcription history will appear here"
+    },
+    "loading": "Loading transcriptions...",
+    "error": "Failed to load transcriptions",
+    "duration": "Duration",
+    "words": "Words",
+    "accuracy": "Model confidence",
+    "processing": "Processing Time",
+    "ago": "ago",
+    "copyText": "Copy Text",
+    "download": "Download",
+    "view": "View Details",
+    "createdAt": "Created",
+    "copied": "Text copied to clipboard!",
+    "processingDesc": "Your transcription is being processed. This may take a few minutes...",
+    "failedDesc": "We couldn't transcribe this video. Please try again.",
+    "youtubeAccessBlocked": "YouTube blocked access from our processing service. Upload the video file instead."
+  },
+  "language": {
+    "switchTo": "Cambiar a español"
+  },
+  "messages": {
+    "success": "Success",
+    "error": "Error",
+    "transcribed": "Video transcribed successfully!",
+    "failed": "Failed to transcribe video. Please try again.",
+    "invalidUrl": "Please enter a valid URL",
+    "enterUrl": "Please enter a video URL",
+    "limitReached": "You have reached your free tier limit. Please upgrade to continue.",
+    "paymentFailed": "Payment Failed",
+    "paymentSuccess": "Payment Successful",
+    "thankYou": "Thank you for your purchase!",
+    "subscriptionSuccess": "Welcome to Ujtö̀ Pro!",
+    "welcomePro": "Your subscription is now active. Enjoy unlimited transcriptions and premium features.",
+    "startTranscribing": "Start Transcribing",
+    "copied": "Transcription copied to clipboard!",
+    "downloadStarted": "Your transcription has been downloaded as a text file.",
+    "copyFailed": "Failed to copy to clipboard.",
+    "emailRequired": "Please enter your email address",
+    "settingUp": "Setting up...",
+    "returnHome": "Return to Home",
+    "videoTooLong": "Video is too long. Please use a video of maximum 10 minutes on the Free plan (2 hours on Pro).",
+    "unknownError": "Something went wrong. Please try again.",
+    "downloadTitle": "Download started"
+  },
+  "meta": {
+    "title": "Ujtö̀ — Dashboard",
+    "description": "Turn any video URL into an accurate transcript in seconds. 3 free transcriptions per day."
+  },
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "history": "History",
+    "profile": "Profile",
+    "back": "Back to Home"
+  },
+  "navigation": {
+    "backToHome": "Back to Home"
+  },
+  "notFound": {
+    "title": "404 Page Not Found",
+    "description": "The requested page could not be found.",
+    "goHome": "Go Home"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllRead": "Mark all as read",
+    "empty": "No notifications",
+    "emptyDescription": "You're all caught up! New notifications will appear here.",
+    "transcriptionCompleted": "Transcription completed",
+    "transcriptionFailed": "Transcription failed",
+    "system": "System Notification",
+    "welcomeTitle": "Welcome to Ujtö̀!",
+    "timeAgo": {
+      "justNow": "Just now",
+      "minutesAgo": "{minutes} minutes ago",
+      "hoursAgo": "{hours} hours ago",
+      "daysAgo": "{days} days ago"
+    },
+    "unreadCount": "{count} unread notifications",
+    "completed": {
+      "title": "Transcription Completed!",
+      "description": "Your video \"{{title}}\" has been successfully transcribed and is ready to view."
+    },
+    "failed": {
+      "title": "Transcription Failed",
+      "description": "We couldn't process your video \"{{title}}\". Please try again."
+    },
+    "processing": {
+      "title": "Processing Started",
+      "description": "Your video \"{{title}}\" is now being transcribed."
+    }
+  },
+  "password": {
+    "strength": "Password Strength",
+    "rule": {
+      "length": "At least 8 characters",
+      "lower": "One lowercase letter",
+      "upper": "One uppercase letter",
+      "number": "One number",
+      "special": "One special character"
+    }
+  },
+  "pricing": {
+    "title": "Simple, Transparent Pricing",
+    "subtitle": "Start free, upgrade when you need more. No hidden fees, cancel anytime.",
+    "free": {
+      "title": "Free",
+      "subtitle": "Perfect for trying out",
+      "transcriptions": "3 transcriptions per day",
+      "duration": "Up to 10 minutes per video",
+      "accuracy": "Basic accuracy",
+      "format": "Download as TXT",
+      "button": "Current Plan"
+    },
+    "pro": {
+      "title": "Pro",
+      "subtitle": "per month",
+      "popular": "Most Popular",
+      "unlimited": "Unlimited transcriptions",
+      "duration": "Up to 2 hours per video",
+      "accuracy": "Enhanced accuracy (larger AI model)",
+      "formats": "Multiple formats (TXT, SRT, VTT)",
+      "priority": "Priority processing",
+      "support": "Email support",
+      "button": "Upgrade to Pro"
+    },
+    "enterprise": {
+      "title": "Enterprise",
+      "subtitle": "For large teams",
+      "everything": "Everything in Pro",
+      "api": "Custom API integration",
+      "whitelabel": "White-label options",
+      "phone": "24/7 phone support",
+      "sla": "SLA guarantee",
+      "button": "Contact Sales"
+    },
+    "payment": "Secure payment powered by"
+  },
+  "profile": {
+    "title": "Profile",
+    "description": "Manage your account information and preferences.",
+    "verified": "Verified",
+    "plan": "Plan",
+    "memberSince": "Member since",
+    "transcriptionsUsed": "transcriptions used",
+    "edit": {
+      "title": "Edit Profile",
+      "description": "Update your profile information. Note: Email cannot be changed.",
+      "username": "Username",
+      "usernamePlaceholder": "Enter your username",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Enter your last name",
+      "emailNote": "Email cannot be changed",
+      "submit": "Update Profile"
+    },
+    "update": {
+      "success": {
+        "title": "Profile Updated",
+        "description": "Your profile has been updated successfully."
+      },
+      "error": "Failed to update profile"
+    },
+    "editProfile": "Edit Profile",
+    "loginRequired": "Please log in to view your profile."
+  },
+  "status": {
+    "processing": "Processing...",
+    "completed": "Completed",
+    "failed": "Failed",
+    "awaitingUpload": "Uploading...",
+    "pending": "Pending..."
+  },
+  "story": {
+    "title": "Where the name comes from",
+    "p1": "Ujtö̀ means “word” —and also “language”— in Bribri, the language of the Bribri people of Talamanca, Costa Rica.",
+    "p2": "Bribri is a tonal language: the diaeresis marks a vowel of its own, and the grave accent a falling tone. That is why we write Ujtö̀ with all its marks.",
+    "p3": "We chose it because that is what we do: turn the voice in a video into words you can read, keep and share. From video to word.",
+    "attribution": "Inspired, with respect, by the Bribri language of Talamanca, Costa Rica.",
+    "source": "Meaning per the Bribri–Spanish Dictionary of the Universidad de Costa Rica"
+  },
+  "theme": {
+    "toggle": "Toggle theme"
+  },
+  "transcription": {
+    "newTranscription": "New Transcription",
+    "enterVideoUrl": "Enter a video URL to start transcribing",
+    "videoUrl": "Video URL",
+    "videoUrlPlaceholder": "https://www.youtube.com/watch?v=...",
+    "processing": "Processing...",
+    "success": {
+      "title": "Transcription Complete",
+      "description": "Your video has been transcribed successfully!"
+    },
+    "error": {
+      "title": "Transcription Failed",
+      "description": "There was an error processing your video. Please try again."
+    },
+    "status": {
+      "processing": "Processing",
+      "completed": "Completed",
+      "failed": "Failed"
+    },
+    "words": "words",
+    "queued": {
+      "title": "Transcription Queued",
+      "description": "Your video \"{{title}}\" has been queued for processing. You'll see the results here soon."
+    }
+  },
+  "transcriptions": {
+    "processing": "Processing",
+    "completed": "Completed",
+    "failed": "Failed",
+    "refreshed": "History Refreshed",
+    "refreshedDesc": "Transcription history updated successfully"
+  },
+  "upload": {
+    "tab": "Upload a file",
+    "linkTab": "Paste a link",
+    "description": "Upload an audio or video file from your device. It is deleted from our servers as soon as the transcription finishes.",
+    "linkDescription": "Links are best-effort: YouTube often blocks our servers. If a link fails, upload the file instead.",
+    "dropTitle": "Drop a file here or click to choose",
+    "dropHint": "Audio or video, up to {{size}} MB and {{minutes}} minutes on your plan",
+    "change": "Choose another file",
+    "start": "Upload and transcribe",
+    "uploading": "Uploading… {{percent}}%",
+    "starting": "Starting transcription…",
+    "cancel": "Cancel",
+    "errors": {
+      "notMedia": "Choose an audio or video file.",
+      "tooBig": "This file is larger than your plan allows ({{size}} MB).",
+      "tooLong": "This file is longer than your plan allows ({{minutes}} minutes).",
+      "failed": "The upload failed. Check your connection and try again.",
+      "cancelled": "Upload cancelled."
+    }
+  },
+  "validation": {
+    "emailInvalid": "Please enter a valid email address",
+    "passwordRequired": "Password is required",
+    "resetCode": "Enter the 6-digit code from your email",
+    "verificationCode": "Verification code must be 6 digits",
+    "passwordMin": "Password must be at least 8 characters",
+    "passwordLower": "Password must contain at least one lowercase letter",
+    "passwordUpper": "Password must contain at least one uppercase letter",
+    "passwordNumber": "Password must contain at least one number",
+    "passwordSpecial": "Password must contain at least one special character",
+    "passwordsMismatch": "Passwords don't match",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "usernameMin": "Username must be at least 3 characters",
+    "usernameMax": "Username must be less than 20 characters"
+  },
+  "app": {
+    "words": "{{count}} words",
+    "minutes": "{{count}} min",
+    "shell": {
+      "collapse": "Collapse sidebar",
+      "expand": "Expand sidebar",
+      "close": "Close menu",
+      "menu": "Open menu",
+      "account": "Account"
+    },
+    "nav": {
+      "overview": "Overview",
+      "transcriptions": "Transcriptions",
+      "new": "New transcription",
+      "history": "History",
+      "account": "Account",
+      "profile": "Profile",
+      "billing": "Plan & billing",
+      "resources": "Resources",
+      "help": "Help",
+      "desktop": "Desktop app",
+      "website": "Ujtö̀ website"
+    },
+    "overview": {
+      "maxLength": "Max length per video",
+      "recent": "Recent transcriptions",
+      "seeAll": "See all"
+    },
+    "history": {
+      "count": "{{count}} transcriptions",
+      "search": "Search by title or text…",
+      "noMatches": "No transcriptions match your search."
+    },
+    "new": {
+      "onDevice": "You're in the Ujtö̀ desktop app: the link is downloaded from your computer, so YouTube works.",
+      "getDesktop": "Get the desktop app",
+      "transcribeLink": "Transcribe link",
+      "phase": {
+        "probing": "Reading the link…",
+        "uploading": "Downloading and uploading…",
+        "starting": "Starting transcription…",
+        "queueing": "Sending…"
+      }
+    },
+    "detail": {
+      "rename": "Rename",
+      "confirmDelete": "Delete this transcription? This cannot be undone.",
+      "deleted": "Transcription deleted",
+      "accuracy": "{{value}}% confidence",
+      "keepWorking": "You can leave this page; we'll notify you when it's ready.",
+      "transcript": "Transcript",
+      "timestamps": "Timestamps",
+      "copy": "Copy"
+    },
+    "errors": {
+      "uploadFile": "Upload a file",
+      "useDesktop": "Get the desktop app",
+      "seePlans": "See plans",
+      "tryAgain": "Try again"
+    },
+    "billing": {
+      "title": "Plan & billing",
+      "description": "Your plan and what it includes.",
+      "current": "Current plan",
+      "paymentsSoon": "Paid plans are coming soon. Everyone is on Free for now."
+    },
+    "desktop": {
+      "running": "You're using the desktop app.",
+      "yourSystem": "Your system"
+    }
+  }
+}

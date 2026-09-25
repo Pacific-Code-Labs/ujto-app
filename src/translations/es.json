@@ -1,0 +1,526 @@
+{
+  "auth": {
+    "register": {
+      "title": "Crear Cuenta",
+      "description": "Comienza con Ujtö̀ hoy",
+      "username": "Nombre de Usuario",
+      "usernamePlaceholder": "Elige un nombre de usuario único",
+      "firstName": "Nombre",
+      "firstNamePlaceholder": "Ingresa tu nombre",
+      "lastName": "Apellido",
+      "lastNamePlaceholder": "Ingresa tu apellido",
+      "email": "Email",
+      "emailPlaceholder": "Ingresa tu dirección de email",
+      "password": "Contraseña",
+      "passwordPlaceholder": "Crea una contraseña segura",
+      "confirmPassword": "Confirmar Contraseña",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña",
+      "submit": "Crear Cuenta",
+      "hasAccount": "¿Ya tienes una cuenta?",
+      "signIn": "Iniciar sesión",
+      "success": {
+        "title": "Cuenta Creada",
+        "description": "Revisa tu email para el código de verificación"
+      },
+      "error": "Error al crear la cuenta",
+      "steps": {
+        "personalInfo": "Información Personal",
+        "personalInfoDesc": "Información básica",
+        "security": "Seguridad",
+        "securityDesc": "Crear contraseña",
+        "verify": "Verificar",
+        "verifyDesc": "Verificación de email"
+      },
+      "step1": {
+        "title": "Información Personal",
+        "subtitle": "Información básica"
+      },
+      "step2": {
+        "title": "Seguridad",
+        "subtitle": "Crear contraseña"
+      },
+      "step3": {
+        "title": "Verificar",
+        "subtitle": "Verificación de email"
+      },
+      "continue": "Continuar a Contraseña",
+      "back": "Atrás",
+      "createAccount": "Crear Cuenta",
+      "completeStep1": "Por favor completa el paso 1 primero",
+      "complete": {
+        "title": "Registro Completo",
+        "description": "¡Bienvenido! Tu cuenta está lista."
+      }
+    },
+    "verify": {
+      "title": "Verificar Email",
+      "description": "Enviamos un código de verificación a",
+      "code": "Código de Verificación",
+      "codePlaceholder": "123456",
+      "submit": "Verificar Email",
+      "noCode": "¿No recibiste el código?",
+      "resendCode": "Reenviar Código",
+      "backToRegister": "Volver a Registro",
+      "success": {
+        "title": "Email Verificado",
+        "description": "¡Bienvenido a Ujtö̀!"
+      },
+      "error": "Código de verificación inválido",
+      "resend": {
+        "success": {
+          "title": "Código Enviado",
+          "description": "Un nuevo código de verificación ha sido enviado a tu email"
+        },
+        "error": "Error al reenviar código de verificación"
+      }
+    },
+    "login": {
+      "title": "Bienvenido de Vuelta",
+      "description": "Inicia sesión en tu cuenta de Ujtö̀",
+      "email": "Email",
+      "emailPlaceholder": "Ingresa tu email",
+      "password": "Contraseña",
+      "passwordPlaceholder": "Ingresa tu contraseña",
+      "submit": "Iniciar Sesión",
+      "forgotPassword": "¿Olvidaste tu Contraseña",
+      "noAccount": "¿No tienes una cuenta?",
+      "signUp": "Registrarse",
+      "success": {
+        "title": "Bienvenido de Vuelta",
+        "description": "Sesión iniciada exitosamente"
+      },
+      "error": "Email o contraseña inválidos"
+    },
+    "forgot": {
+      "title": "¿Olvidaste tu Contraseña?",
+      "description": "Ingresa tu dirección de email y te enviaremos un enlace para restablecer tu contraseña",
+      "email": "Dirección de Email",
+      "emailPlaceholder": "Ingresa tu dirección de email",
+      "submit": "Enviar Enlace de Restablecimiento",
+      "sending": "Enviando",
+      "backToLogin": "Volver al Login",
+      "success": {
+        "title": "Revisa tu Email",
+        "description": "Si existe una cuenta con ese email, se ha enviado un enlace de restablecimiento de contraseña."
+      },
+      "error": "Error al enviar enlace de restablecimiento"
+    },
+    "reset": {
+      "title": "Restablecer Contraseña",
+      "description": "Ingresa tu nueva contraseña",
+      "newPassword": "Nueva Contraseña",
+      "newPasswordPlaceholder": "Ingresa tu nueva contraseña",
+      "confirmPassword": "Confirmar Contraseña",
+      "confirmPasswordPlaceholder": "Confirma tu nueva contraseña",
+      "submit": "Restablecer Contraseña",
+      "resetting": "Restableciendo",
+      "backToLogin": "Volver al Login",
+      "success": {
+        "title": "Contraseña Restablecida Exitosamente",
+        "description": "Tu contraseña ha sido restablecida. Ahora puedes iniciar sesión con tu nueva contraseña."
+      },
+      "loginNow": "Iniciar Sesión Ahora",
+      "error": "Error al restablecer contraseña",
+      "invalidLink": "Enlace de restablecimiento inválido o expirado",
+      "requestNewLink": "Solicitar Nuevo Enlace de Restablecimiento",
+      "showPassword": "Mostrar contraseña",
+      "hidePassword": "Ocultar contraseña"
+    },
+    "logout": {
+      "title": "Sesión Cerrada",
+      "description": "Has cerrado sesión exitosamente."
+    },
+    "loginRequired": "Se requiere iniciar sesión",
+    "loginMessage": "Por favor inicia sesión para comenzar a transcribir tus videos",
+    "signIn": "Iniciar Sesión"
+  },
+  "common": {
+    "back": "Volver",
+    "backToHome": "Volver al Inicio",
+    "logout": "Cerrar Sesión",
+    "upgrade": "Actualizar",
+    "upgradeForUnlimited": "Actualizar para transcripciones ilimitadas.",
+    "cancel": "Cancelar",
+    "continue": "Continuar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "refresh": "Actualizar",
+    "comingSoon": "Próximamente"
+  },
+  "dashboard": {
+    "welcomeBack": "¡Bienvenido de nuevo, {{name}}!",
+    "description": "Gestiona tus transcripciones y configuración de cuenta",
+    "accountOverview": "Resumen de Cuenta",
+    "plan": "Plan",
+    "free": "Gratuito",
+    "pro": "Pro",
+    "upgrade": "Actualizar",
+    "dailyUsage": "Uso Diario",
+    "dailyLimitReached": "Límite diario alcanzado",
+    "totalTranscriptions": "Transcripciones Totales",
+    "memberSince": "Miembro Desde"
+  },
+  "download": {
+    "button": "Descargar",
+    "notReady": "La transcripción aún no está lista",
+    "txt": "Texto (.txt)",
+    "srt": "Subtítulos (.srt)",
+    "vtt": "Subtítulos web (.vtt)",
+    "proOnly": "Pro",
+    "proHint": "Disponible en el plan Pro",
+    "failed": "La descarga falló"
+  },
+  "errorBoundary": {
+    "title": "Algo salió mal",
+    "description": "La aplicación encontró un error y no pudo cargarse correctamente.",
+    "details": "Detalles del error",
+    "reload": "Recargar página"
+  },
+  "form": {
+    "email": "Dirección de Email",
+    "emailPlaceholder": "Ingresa tu dirección de email",
+    "continue": "Continuar al Pago",
+    "subscribe": "Suscribirse Ahora",
+    "complete": "Completar Pago",
+    "setupError": "Error de Configuración",
+    "paymentError": "Error de Configuración de Pago",
+    "tryAgain": "Intentar de Nuevo",
+    "backHome": "Volver al Inicio",
+    "back": "Atrás"
+  },
+  "history": {
+    "title": "Transcripciones Recientes",
+    "empty": {
+      "title": "No hay transcripciones aún",
+      "description": "Tu historial de transcripciones aparecerá aquí"
+    },
+    "loading": "Cargando transcripciones...",
+    "error": "Error al cargar transcripciones",
+    "duration": "Duración",
+    "words": "Palabras",
+    "accuracy": "Confianza del modelo",
+    "processing": "Tiempo de Procesamiento",
+    "ago": "hace",
+    "copyText": "Copiar Texto",
+    "download": "Descargar",
+    "view": "Ver Detalles",
+    "createdAt": "Creado",
+    "copied": "¡Texto copiado al portapapeles!",
+    "processingDesc": "Tu transcripción se está procesando. Esto puede tardar unos minutos...",
+    "failedDesc": "No pudimos transcribir este video. Inténtalo de nuevo.",
+    "youtubeAccessBlocked": "YouTube bloqueó el acceso desde nuestro servicio. Sube el archivo del video en su lugar."
+  },
+  "language": {
+    "switchTo": "Switch to English"
+  },
+  "messages": {
+    "success": "Éxito",
+    "error": "Error",
+    "transcribed": "¡Video transcrito exitosamente!",
+    "failed": "Error al transcribir video. Por favor intenta de nuevo.",
+    "invalidUrl": "Por favor ingresa una URL válida",
+    "enterUrl": "Por favor ingresa una URL de video",
+    "limitReached": "Has alcanzado tu límite de nivel gratuito. Por favor actualiza para continuar.",
+    "paymentFailed": "Pago Fallido",
+    "paymentSuccess": "Pago Exitoso",
+    "thankYou": "¡Gracias por tu compra!",
+    "subscriptionSuccess": "¡Bienvenido a Ujtö̀ Pro!",
+    "welcomePro": "Tu suscripción está ahora activa. Disfruta transcripciones ilimitadas y características premium.",
+    "startTranscribing": "Comenzar a Transcribir",
+    "copied": "¡Transcripción copiada al portapapeles!",
+    "downloadStarted": "Tu transcripción ha sido descargada como archivo de texto.",
+    "copyFailed": "Error al copiar al portapapeles.",
+    "emailRequired": "Por favor ingresa tu dirección de email",
+    "settingUp": "Configurando...",
+    "returnHome": "Volver al Inicio",
+    "videoTooLong": "El video tiene una duración muy larga. Por favor, usa un video de máximo 10 minutos en el plan Gratis (2 horas en Pro).",
+    "unknownError": "Algo salió mal. Inténtalo de nuevo.",
+    "downloadTitle": "Descarga iniciada"
+  },
+  "meta": {
+    "title": "Ujtö̀ — Panel",
+    "description": "Convierte cualquier URL de video en una transcripción precisa en segundos. 3 transcripciones gratis por día."
+  },
+  "nav": {
+    "features": "Características",
+    "pricing": "Precios",
+    "contact": "Contacto",
+    "getStarted": "Comenzar",
+    "history": "Historial",
+    "profile": "Perfil",
+    "back": "Volver al Inicio"
+  },
+  "navigation": {
+    "backToHome": "Volver al Inicio"
+  },
+  "notFound": {
+    "title": "404 Página no encontrada",
+    "description": "No se encontró la página solicitada.",
+    "goHome": "Ir al inicio"
+  },
+  "notifications": {
+    "title": "Notificaciones",
+    "markAllRead": "Marcar todo como leído",
+    "empty": "Sin notificaciones",
+    "emptyDescription": "¡Estás al día! Las nuevas notificaciones aparecerán aquí.",
+    "transcriptionCompleted": "Transcripción completada",
+    "transcriptionFailed": "No se pudo transcribir el video",
+    "system": "Notificación del Sistema",
+    "welcomeTitle": "¡Bienvenido a Ujtö̀!",
+    "timeAgo": {
+      "justNow": "Justo ahora",
+      "minutesAgo": "hace {minutes} minutos",
+      "hoursAgo": "hace {hours} horas",
+      "daysAgo": "hace {days} días"
+    },
+    "unreadCount": "{count} notificaciones no leídas",
+    "completed": {
+      "title": "¡Transcripción Completada!",
+      "description": "Tu video \"{{title}}\" ha sido transcrito exitosamente y está listo para ver."
+    },
+    "failed": {
+      "title": "Transcripción Falló",
+      "description": "No pudimos procesar tu video \"{{title}}\". Por favor, inténtalo de nuevo."
+    },
+    "processing": {
+      "title": "Procesamiento Iniciado",
+      "description": "Tu video \"{{title}}\" está siendo transcrito ahora."
+    }
+  },
+  "password": {
+    "strength": "Seguridad de la contraseña",
+    "rule": {
+      "length": "Al menos 8 caracteres",
+      "lower": "Una letra minúscula",
+      "upper": "Una letra mayúscula",
+      "number": "Un número",
+      "special": "Un carácter especial"
+    }
+  },
+  "pricing": {
+    "title": "Precios Simples y Transparentes",
+    "subtitle": "Comienza gratis, actualiza cuando necesites más. Sin tarifas ocultas, cancela en cualquier momento.",
+    "free": {
+      "title": "Gratis",
+      "subtitle": "Perfecto para probar",
+      "transcriptions": "3 transcripciones por día",
+      "duration": "Hasta 10 minutos por video",
+      "accuracy": "Precisión básica",
+      "format": "Descarga como TXT",
+      "button": "Plan Actual"
+    },
+    "pro": {
+      "title": "Pro",
+      "subtitle": "por mes",
+      "popular": "Más Popular",
+      "unlimited": "Transcripciones ilimitadas",
+      "duration": "Hasta 2 horas por video",
+      "accuracy": "Precisión mejorada (modelo de IA más grande)",
+      "formats": "Múltiples formatos (TXT, SRT, VTT)",
+      "priority": "Procesamiento prioritario",
+      "support": "Soporte por email",
+      "button": "Actualizar a Pro"
+    },
+    "enterprise": {
+      "title": "Empresarial",
+      "subtitle": "Para equipos grandes",
+      "everything": "Todo en Pro",
+      "api": "Integración API personalizada",
+      "whitelabel": "Opciones de marca blanca",
+      "phone": "Soporte telefónico 24/7",
+      "sla": "Garantía SLA",
+      "button": "Contactar Ventas"
+    },
+    "payment": "Pago seguro proporcionado por"
+  },
+  "profile": {
+    "title": "Perfil",
+    "description": "Gestiona la información de tu cuenta y preferencias.",
+    "verified": "Verificado",
+    "plan": "Plan",
+    "memberSince": "Miembro desde",
+    "transcriptionsUsed": "transcripciones utilizadas",
+    "edit": {
+      "title": "Editar Perfil",
+      "description": "Actualiza la información de tu perfil. Nota: El email no se puede cambiar.",
+      "username": "Nombre de Usuario",
+      "usernamePlaceholder": "Ingresa tu nombre de usuario",
+      "firstName": "Nombre",
+      "firstNamePlaceholder": "Ingresa tu nombre",
+      "lastName": "Apellido",
+      "lastNamePlaceholder": "Ingresa tu apellido",
+      "emailNote": "El email no se puede cambiar",
+      "submit": "Actualizar Perfil"
+    },
+    "update": {
+      "success": {
+        "title": "Perfil Actualizado",
+        "description": "Tu perfil ha sido actualizado exitosamente."
+      },
+      "error": "Error al actualizar perfil"
+    },
+    "editProfile": "Editar Perfil",
+    "loginRequired": "Inicia sesión para ver tu perfil."
+  },
+  "status": {
+    "processing": "Procesando...",
+    "completed": "Completado",
+    "failed": "Fallido",
+    "awaitingUpload": "Subiendo...",
+    "pending": "Pendiente..."
+  },
+  "story": {
+    "title": "El origen del nombre",
+    "p1": "Ujtö̀ significa «palabra» —y también «idioma»— en bribri, la lengua del pueblo bribri de Talamanca, Costa Rica.",
+    "p2": "El bribri es una lengua tonal: la diéresis marca una vocal propia del bribri y el acento grave, un tono descendente. Por eso escribimos Ujtö̀ con todas sus marcas.",
+    "p3": "Lo elegimos porque eso es lo que hacemos: transformar la voz de un video en palabras que se pueden leer, guardar y compartir. Del video a la palabra.",
+    "attribution": "Inspirado, con respeto, en la lengua bribri de Talamanca, Costa Rica.",
+    "source": "Significado según el Diccionario bribri–español de la Universidad de Costa Rica"
+  },
+  "theme": {
+    "toggle": "Cambiar tema"
+  },
+  "transcription": {
+    "newTranscription": "Nueva Transcripción",
+    "enterVideoUrl": "Ingresa una URL de video para comenzar a transcribir",
+    "videoUrl": "URL del Video",
+    "videoUrlPlaceholder": "https://www.youtube.com/watch?v=...",
+    "processing": "Procesando...",
+    "success": {
+      "title": "Transcripción Completa",
+      "description": "¡Tu video ha sido transcrito exitosamente!"
+    },
+    "error": {
+      "title": "Error en Transcripción",
+      "description": "Hubo un error procesando tu video. Por favor, inténtalo de nuevo."
+    },
+    "status": {
+      "processing": "Procesando",
+      "completed": "Completado",
+      "failed": "Fallido"
+    },
+    "words": "palabras",
+    "queued": {
+      "title": "Transcripción en Cola",
+      "description": "Tu video \"{{title}}\" ha sido puesto en cola para procesamiento. Verás los resultados aquí pronto."
+    }
+  },
+  "transcriptions": {
+    "processing": "Procesando",
+    "completed": "Completado",
+    "failed": "Fallido",
+    "refreshed": "Historial Actualizado",
+    "refreshedDesc": "El historial de transcripciones se ha actualizado exitosamente"
+  },
+  "upload": {
+    "tab": "Subir un archivo",
+    "linkTab": "Pegar un enlace",
+    "description": "Sube un archivo de audio o video desde tu dispositivo. Se elimina de nuestros servidores en cuanto termina la transcripción.",
+    "linkDescription": "Los enlaces funcionan cuando es posible: YouTube suele bloquear nuestros servidores. Si un enlace falla, sube el archivo.",
+    "dropTitle": "Suelta un archivo aquí o haz clic para elegirlo",
+    "dropHint": "Audio o video, hasta {{size}} MB y {{minutes}} minutos en tu plan",
+    "change": "Elegir otro archivo",
+    "start": "Subir y transcribir",
+    "uploading": "Subiendo… {{percent}}%",
+    "starting": "Iniciando la transcripción…",
+    "cancel": "Cancelar",
+    "errors": {
+      "notMedia": "Elige un archivo de audio o video.",
+      "tooBig": "Este archivo supera el tamaño permitido por tu plan ({{size}} MB).",
+      "tooLong": "Este archivo supera la duración permitida por tu plan ({{minutes}} minutos).",
+      "failed": "La subida falló. Revisa tu conexión e inténtalo de nuevo.",
+      "cancelled": "Subida cancelada."
+    }
+  },
+  "validation": {
+    "emailInvalid": "Ingresa un correo electrónico válido",
+    "passwordRequired": "La contraseña es obligatoria",
+    "resetCode": "Ingresa el código de 6 dígitos de tu correo",
+    "verificationCode": "El código de verificación debe tener 6 dígitos",
+    "passwordMin": "La contraseña debe tener al menos 8 caracteres",
+    "passwordLower": "La contraseña debe incluir al menos una letra minúscula",
+    "passwordUpper": "La contraseña debe incluir al menos una letra mayúscula",
+    "passwordNumber": "La contraseña debe incluir al menos un número",
+    "passwordSpecial": "La contraseña debe incluir al menos un carácter especial",
+    "passwordsMismatch": "Las contraseñas no coinciden",
+    "firstNameRequired": "El nombre es obligatorio",
+    "lastNameRequired": "El apellido es obligatorio",
+    "usernameMin": "El usuario debe tener al menos 3 caracteres",
+    "usernameMax": "El usuario debe tener menos de 20 caracteres"
+  },
+  "app": {
+    "words": "{{count}} palabras",
+    "minutes": "{{count}} min",
+    "shell": {
+      "collapse": "Contraer menú lateral",
+      "expand": "Expandir menú lateral",
+      "close": "Cerrar menú",
+      "menu": "Abrir menú",
+      "account": "Cuenta"
+    },
+    "nav": {
+      "overview": "Inicio",
+      "transcriptions": "Transcripciones",
+      "new": "Nueva transcripción",
+      "history": "Historial",
+      "account": "Cuenta",
+      "profile": "Perfil",
+      "billing": "Plan y facturación",
+      "resources": "Recursos",
+      "help": "Ayuda",
+      "desktop": "App de escritorio",
+      "website": "Sitio de Ujtö̀"
+    },
+    "overview": {
+      "maxLength": "Duración máxima por video",
+      "recent": "Transcripciones recientes",
+      "seeAll": "Ver todas"
+    },
+    "history": {
+      "count": "{{count}} transcripciones",
+      "search": "Buscar por título o texto…",
+      "noMatches": "Ninguna transcripción coincide con tu búsqueda."
+    },
+    "new": {
+      "onDevice": "Estás en la app de escritorio de Ujtö̀: el enlace se descarga desde tu computadora, así que YouTube funciona.",
+      "getDesktop": "Obtén la app de escritorio",
+      "transcribeLink": "Transcribir enlace",
+      "phase": {
+        "probing": "Leyendo el enlace…",
+        "uploading": "Descargando y subiendo…",
+        "starting": "Iniciando la transcripción…",
+        "queueing": "Enviando…"
+      }
+    },
+    "detail": {
+      "rename": "Renombrar",
+      "confirmDelete": "¿Eliminar esta transcripción? No se puede deshacer.",
+      "deleted": "Transcripción eliminada",
+      "accuracy": "{{value}}% de confianza",
+      "keepWorking": "Puedes salir de esta página; te avisaremos cuando esté lista.",
+      "transcript": "Transcripción",
+      "timestamps": "Marcas de tiempo",
+      "copy": "Copiar"
+    },
+    "errors": {
+      "uploadFile": "Subir un archivo",
+      "useDesktop": "Obtener la app de escritorio",
+      "seePlans": "Ver planes",
+      "tryAgain": "Intentar de nuevo"
+    },
+    "billing": {
+      "title": "Plan y facturación",
+      "description": "Tu plan y lo que incluye.",
+      "current": "Plan actual",
+      "paymentsSoon": "Los planes de pago llegarán pronto. Por ahora todos están en Gratis."
+    },
+    "desktop": {
+      "running": "Estás usando la app de escritorio.",
+      "yourSystem": "Tu sistema"
+    }
+  }
+}

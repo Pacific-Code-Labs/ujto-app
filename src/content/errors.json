@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "code": "YOUTUBE_ACCESS_BLOCKED",
+      "match": "exact",
+      "action": "desktop",
+      "title": { "en": "YouTube blocked this link", "es": "YouTube bloqueó este enlace" },
+      "message": {
+        "en": "YouTube blocks downloads from our servers. Upload the video file instead, or use the Ujtö̀ desktop app to send it from your computer.",
+        "es": "YouTube bloquea las descargas desde nuestros servidores. Sube el archivo del video o usa la app de escritorio de Ujtö̀ para enviarlo desde tu computadora."
+      }
+    },
+    {
+      "code": "too long",
+      "match": "contains",
+      "action": "upgrade",
+      "title": { "en": "The video is too long", "es": "El video es demasiado largo" },
+      "message": {
+        "en": "It exceeds the length your plan allows. Trim it or upgrade to Pro.",
+        "es": "Supera la duración que permite tu plan. Recórtalo o pásate a Pro."
+      }
+    },
+    {
+      "code": "Could not queue",
+      "match": "contains",
+      "action": "retry",
+      "title": { "en": "We couldn't start the job", "es": "No pudimos iniciar el trabajo" },
+      "message": {
+        "en": "Something went wrong on our side. Please try again in a moment.",
+        "es": "Algo falló de nuestro lado. Inténtalo de nuevo en un momento."
+      }
+    }
+  ],
+  "fallback": {
+    "code": "GENERIC",
+    "match": "exact",
+    "action": "retry",
+    "title": { "en": "We couldn't transcribe this", "es": "No pudimos transcribir esto" },
+    "message": {
+      "en": "The file or link could not be processed. Check it plays correctly and try again.",
+      "es": "No se pudo procesar el archivo o enlace. Verifica que se reproduzca bien e inténtalo de nuevo."
+    }
+  }
+}

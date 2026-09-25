@@ -1,0 +1,15 @@
+[
+  {
+    "id": "talamanca",
+    "name": "Tierra y río de Talamanca",
+    "isActive": true,
+    "colors": {
+      "primary": "#1F5F63",
+      "secondary": "#8E4F34",
+      "accent": "#C3501E",
+      "success": "#3E6B43",
+      "background": "#F2EADC",
+      "foreground": "#382923"
+    }
+  }
+]

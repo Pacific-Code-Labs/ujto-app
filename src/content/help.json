@@ -1,0 +1,63 @@
+{
+  "title": { "en": "How to transcribe", "es": "Cómo transcribir" },
+  "intro": {
+    "en": "Ujtö̀ turns the voice in a video into text. Here is how to get the best results.",
+    "es": "Ujtö̀ convierte la voz de un video en texto. Así obtienes los mejores resultados."
+  },
+  "steps": [
+    {
+      "iconName": "upload",
+      "title": { "en": "1. Upload your file", "es": "1. Sube tu archivo" },
+      "body": {
+        "en": "Choose an audio or video file (MP4, MOV, MP3, M4A, WAV, WEBM…). Audio-only files upload fastest.",
+        "es": "Elige un archivo de audio o video (MP4, MOV, MP3, M4A, WAV, WEBM…). Los archivos solo de audio suben más rápido."
+      }
+    },
+    {
+      "iconName": "clock",
+      "title": { "en": "2. Wait a few minutes", "es": "2. Espera unos minutos" },
+      "body": {
+        "en": "A 10-minute video takes about 3–4 minutes. You can leave the page: we notify you when it's ready.",
+        "es": "Un video de 10 minutos tarda unos 3–4 minutos. Puedes salir de la página: te avisamos cuando esté listo."
+      }
+    },
+    {
+      "iconName": "download",
+      "title": { "en": "3. Read or download", "es": "3. Lee o descarga" },
+      "body": {
+        "en": "Open the transcript to read it with timestamps, copy it, or download it.",
+        "es": "Abre la transcripción para leerla con marcas de tiempo, copiarla o descargarla."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": { "en": "Why do YouTube links fail?", "es": "¿Por qué fallan los enlaces de YouTube?" },
+      "answer": {
+        "en": "YouTube blocks requests from cloud servers like ours. Upload the file, or use the Ujtö̀ desktop app: it downloads the audio from your own connection.",
+        "es": "YouTube bloquea las solicitudes desde servidores en la nube como los nuestros. Sube el archivo o usa la app de escritorio de Ujtö̀: descarga el audio desde tu propia conexión."
+      }
+    },
+    {
+      "question": { "en": "Do you keep my files?", "es": "¿Guardan mis archivos?" },
+      "answer": {
+        "en": "No. Each uploaded file is deleted as soon as its transcription finishes (and any leftover is removed within a day). We keep only the text.",
+        "es": "No. Cada archivo subido se elimina en cuanto termina su transcripción (y cualquier resto se borra en menos de un día). Solo guardamos el texto."
+      }
+    },
+    {
+      "question": { "en": "Which languages are supported?", "es": "¿Qué idiomas se admiten?" },
+      "answer": {
+        "en": "Whisper recognizes many languages and detects the spoken language automatically.",
+        "es": "Whisper reconoce muchos idiomas y detecta automáticamente el idioma hablado."
+      }
+    },
+    {
+      "question": { "en": "Can I transcribe videos I don't own?", "es": "¿Puedo transcribir videos que no son míos?" },
+      "answer": {
+        "en": "Only process media you have the right to use. You are responsible for the content you upload.",
+        "es": "Procesa solo contenido que tengas derecho a usar. Eres responsable del contenido que subes."
+      }
+    }
+  ]
+}
