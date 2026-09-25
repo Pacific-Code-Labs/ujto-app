@@ -14,6 +14,8 @@ export interface DesktopBridge {
   ): Promise<{ ok: boolean; error?: string }>;
   cancel(jobId: string): Promise<void>;
   version(): Promise<string>;
+  /** Missing in the first desktop builds (they always download). */
+  capabilities?(): Promise<{ edition: "full" | "store"; download: boolean }>;
 }
 
 declare global {
@@ -49,6 +51,29 @@ export function useDesktopBridge(): DesktopBridge | null {
     return () => window.removeEventListener("pywebviewready", ready);
   }, [bridge]);
   return bridge;
+}
+
+/**
+ * Whether this desktop build can download links on the user's machine. The Microsoft Store
+ * edition can't (Store policy), so the Link tab falls back to the server there.
+ */
+export function useDesktopDownloads(): boolean {
+  const bridge = useDesktopBridge();
+  const [enabled, setEnabled] = useState(false);
+  useEffect(() => {
+    if (!bridge) return setEnabled(false);
+    let alive = true;
+    if (!bridge.capabilities) setEnabled(true);
+    else
+      bridge
+        .capabilities()
+        .then((c) => alive && setEnabled(!!c?.download))
+        .catch(() => alive && setEnabled(false));
+    return () => {
+      alive = false;
+    };
+  }, [bridge]);
+  return enabled;
 }
 
 /** Subscribe to the bridge's progress events for one job (phase + 0–1 fraction). */

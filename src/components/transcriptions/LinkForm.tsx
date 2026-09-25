@@ -3,7 +3,7 @@ import { Alert, AlertDescription, Button, Input, Label, Progress, useLanguage } 
 import { Laptop, Loader2 } from "lucide-react";
 import { Link } from "wouter";
 import type { Transcription } from "@/lib/api-types";
-import { onDesktopProgress, useDesktopBridge } from "@/services/desktop.service";
+import { onDesktopProgress, useDesktopBridge, useDesktopDownloads } from "@/services/desktop.service";
 import { transcribeLink, transcribeLinkOnDevice } from "@/services/transcription.service";
 
 interface Props {
@@ -26,7 +26,8 @@ export function LinkForm({ userId, maxVideoSeconds, initialUrl = "", disabled, o
   const [url, setUrl] = useState(initialUrl);
   const [phase, setPhase] = useState<Phase | null>(null);
   const [progress, setProgress] = useState<{ phase: string; fraction: number } | null>(null);
-  const onDevice = useDesktopBridge() !== null;
+  const onDevice = useDesktopDownloads();
+  const inDesktopApp = useDesktopBridge() !== null;
   useEffect(() => (onDevice ? onDesktopProgress((_job, p, fraction) => setProgress({ phase: p, fraction })) : undefined), [onDevice]);
 
   const submit = async (e: React.FormEvent) => {
@@ -61,9 +62,11 @@ export function LinkForm({ userId, maxVideoSeconds, initialUrl = "", disabled, o
           <Laptop className="h-4 w-4" />
           <AlertDescription>
             {t("upload.linkDescription")}{" "}
-            <Link href="/desktop" className="font-medium text-primary underline-offset-4 hover:underline">
-              {t("app.new.getDesktop")}
-            </Link>
+            {!inDesktopApp && (
+              <Link href="/desktop" className="font-medium text-primary underline-offset-4 hover:underline">
+                {t("app.new.getDesktop")}
+              </Link>
+            )}
           </AlertDescription>
         </Alert>
       )}
