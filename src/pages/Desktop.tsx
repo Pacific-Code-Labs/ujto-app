@@ -1,15 +1,14 @@
 import { Badge, Button, Card, CardContent, PageHeader, parseRichText, resolveIcon, useLanguage, useLocalized } from "@pacific-code-labs/ujto-ds";
 import { CheckCircle2, Download } from "lucide-react";
 import { getDesktop } from "@/repositories/content.repository";
-import { detectOs, downloadUrl, orderedPlatforms, useDesktopBridge } from "@/services/desktop.service";
+import { downloadUrl, useDesktopBridge, usePlatformsInOrder } from "@/services/desktop.service";
 
 export default function Desktop() {
   const { t } = useLanguage();
   const L = useLocalized();
   const content = getDesktop();
   const available = content.status === "available";
-  const os = detectOs();
-  const platforms = orderedPlatforms();
+  const { platforms, primary } = usePlatformsInOrder();
   const running = useDesktopBridge() !== null;
 
   return (
@@ -30,7 +29,7 @@ export default function Desktop() {
       <div className="space-y-3">
         {platforms.map((p) => {
           const Icon = resolveIcon(p.iconName);
-          const mine = p.os === os;
+          const mine = p === primary;
           return (
             <Card key={p.file} className={mine ? "border-primary" : undefined}>
               <CardContent className="flex items-center gap-4 p-4">
