@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { getDesktop, type DesktopPlatform } from "@/repositories/content.repository";
 
 /**
@@ -25,8 +26,7 @@ declare global {
 export const desktopBridge = (): DesktopBridge | null =>
   typeof window !== "undefined" && window.pywebview?.api ? window.pywebview.api : null;
 
-export const isDesktopApp = () =>
-  desktopBridge() !== null || new URLSearchParams(window.location.search).get("client") === "desktop";
+export const isDesktopApp = () => desktopBridge() !== null;
 
 /** pywebview injects its API after load; wait for it (resolves null in a normal browser). */
 export function waitForBridge(timeoutMs = 3000): Promise<DesktopBridge | null> {
@@ -37,6 +37,26 @@ export function waitForBridge(timeoutMs = 3000): Promise<DesktopBridge | null> {
     window.addEventListener("pywebviewready", done, { once: true });
     window.setTimeout(done, timeoutMs);
   });
+}
+
+/** The bridge, once pywebview has injected it (null in a normal browser). */
+export function useDesktopBridge(): DesktopBridge | null {
+  const [bridge, setBridge] = useState(desktopBridge);
+  useEffect(() => {
+    if (bridge) return;
+    const ready = () => setBridge(desktopBridge());
+    window.addEventListener("pywebviewready", ready);
+    return () => window.removeEventListener("pywebviewready", ready);
+  }, [bridge]);
+  return bridge;
+}
+
+/** Subscribe to the bridge's progress events for one job (phase + 0–1 fraction). */
+export function onDesktopProgress(listener: (jobId: string, phase: string, fraction: number) => void) {
+  window.ujtoDesktop = { ...(window.ujtoDesktop ?? {}), onProgress: listener };
+  return () => {
+    if (window.ujtoDesktop?.onProgress === listener) window.ujtoDesktop.onProgress = undefined;
+  };
 }
 
 export type DesktopOs = "mac" | "windows" | "linux";

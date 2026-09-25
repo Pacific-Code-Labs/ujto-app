@@ -494,7 +494,8 @@
         "uploading": "Descargando y subiendo…",
         "starting": "Iniciando la transcripción…",
         "queueing": "Enviando…"
-      }
+      },
+      "downloading": "Descargando en tu computadora… {{percent}}%"
     },
     "detail": {
       "rename": "Renombrar",

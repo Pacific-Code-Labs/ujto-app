@@ -494,7 +494,8 @@
         "uploading": "Downloading and uploading…",
         "starting": "Starting transcription…",
         "queueing": "Sending…"
-      }
+      },
+      "downloading": "Downloading on your computer… {{percent}}%"
     },
     "detail": {
       "rename": "Rename",

@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Alert, AlertDescription, Button, Input, Label, useLanguage } from "@pacific-code-labs/ujto-ds";
+import { useEffect, useState } from "react";
+import { Alert, AlertDescription, Button, Input, Label, Progress, useLanguage } from "@pacific-code-labs/ujto-ds";
 import { Laptop, Loader2 } from "lucide-react";
 import { Link } from "wouter";
 import type { Transcription } from "@/lib/api-types";
-import { desktopBridge } from "@/services/desktop.service";
+import { onDesktopProgress, useDesktopBridge } from "@/services/desktop.service";
 import { transcribeLink, transcribeLinkOnDevice } from "@/services/transcription.service";
 
 interface Props {
@@ -25,7 +25,9 @@ export function LinkForm({ userId, maxVideoSeconds, initialUrl = "", disabled, o
   const { t } = useLanguage();
   const [url, setUrl] = useState(initialUrl);
   const [phase, setPhase] = useState<Phase | null>(null);
-  const onDevice = desktopBridge() !== null;
+  const [progress, setProgress] = useState<{ phase: string; fraction: number } | null>(null);
+  const onDevice = useDesktopBridge() !== null;
+  useEffect(() => (onDevice ? onDesktopProgress((_job, p, fraction) => setProgress({ phase: p, fraction })) : undefined), [onDevice]);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,6 +45,7 @@ export function LinkForm({ userId, maxVideoSeconds, initialUrl = "", disabled, o
       onError(code === "TOO_LONG" ? t("messages.videoTooLong") : code || t("messages.unknownError"));
     } finally {
       setPhase(null);
+      setProgress(null);
     }
   };
 
@@ -76,6 +79,14 @@ export function LinkForm({ userId, maxVideoSeconds, initialUrl = "", disabled, o
           disabled={disabled || phase !== null}
         />
       </div>
+      {progress && phase === "uploading" && (
+        <div className="space-y-1">
+          <Progress value={Math.round(progress.fraction * 100)} />
+          <p className="text-xs text-muted-foreground">
+            {t(progress.phase === "uploading" ? "upload.uploading" : "app.new.downloading", { percent: Math.round(progress.fraction * 100) })}
+          </p>
+        </div>
+      )}
       <div className="flex justify-end">
         <Button type="submit" disabled={!url.trim() || disabled || phase !== null}>
           {phase ? (

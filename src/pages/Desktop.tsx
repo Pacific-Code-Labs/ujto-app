@@ -1,7 +1,7 @@
 import { Badge, Button, Card, CardContent, PageHeader, parseRichText, resolveIcon, useLanguage, useLocalized } from "@pacific-code-labs/ujto-ds";
 import { CheckCircle2, Download } from "lucide-react";
 import { getDesktop } from "@/repositories/content.repository";
-import { detectOs, downloadUrl, isDesktopApp, orderedPlatforms } from "@/services/desktop.service";
+import { detectOs, downloadUrl, orderedPlatforms, useDesktopBridge } from "@/services/desktop.service";
 
 export default function Desktop() {
   const { t } = useLanguage();
@@ -10,6 +10,7 @@ export default function Desktop() {
   const available = content.status === "available";
   const os = detectOs();
   const platforms = orderedPlatforms();
+  const running = useDesktopBridge() !== null;
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -17,7 +18,7 @@ export default function Desktop() {
       <Card className="mb-6">
         <CardContent className="space-y-4 p-6">
           <p className="leading-relaxed">{parseRichText(L(content.description))}</p>
-          {isDesktopApp() && (
+          {running && (
             <p className="flex items-center gap-2 font-medium text-success">
               <CheckCircle2 className="h-5 w-5" />
               {t("app.desktop.running")}
