@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import { Button, Progress, cn, useLanguage } from "@pacific-code-labs/ujto-ds";
-import { FileAudio, Loader2, Upload } from "lucide-react";
+import { FileAudio, Upload } from "lucide-react";
 import { ApiError } from "@/lib/api";
 import type { Transcription } from "@/lib/api-types";
-import { mediaType, probeDuration, transcribeFile, type UploadPhase } from "@/services/transcription.service";
+import { mediaType, probeDuration, transcribeFile, uploadPercent, type UploadPhase } from "@/services/transcription.service";
 
 interface Props {
   userId: string;
@@ -36,12 +36,15 @@ export function UploadForm({ userId, maxUploadBytes, maxVideoSeconds, disabled, 
 
   const submit = async () => {
     if (!file) return;
+    setProgress(0);
+    setPhase("preparing");
     const duration = await probeDuration(file, mediaType(file)!);
-    if (duration !== undefined && duration > maxVideoSeconds) return onError(t("upload.errors.tooLong", limits));
+    if (duration !== undefined && duration > maxVideoSeconds) {
+      setPhase(null);
+      return onError(t("upload.errors.tooLong", limits));
+    }
     const controller = new AbortController();
     abortRef.current = controller;
-    setProgress(0);
-    setPhase("uploading");
     try {
       const job = await transcribeFile(userId, file, {
         durationSeconds: duration,
@@ -104,10 +107,11 @@ export function UploadForm({ userId, maxUploadBytes, maxVideoSeconds, disabled, 
       </button>
       <input ref={inputRef} type="file" accept="audio/*,video/*" className="hidden" onChange={(e) => choose(e.target.files?.[0])} />
 
-      {phase === "uploading" && (
-        <div className="space-y-1">
-          <Progress value={Math.round(progress * 100)} />
-          <p className="text-xs text-muted-foreground">{t("upload.uploading", { percent: Math.round(progress * 100) })}</p>
+      {phase && (
+        // One bar for the whole flow (preparing → uploading bytes → starting the job): no spinner.
+        <div className="space-y-1" aria-live="polite">
+          <Progress value={uploadPercent(phase, progress)} className="h-2" aria-label={t(`upload.${phase}`, { percent: Math.round(progress * 100) })} />
+          <p className="text-xs text-muted-foreground">{t(`upload.${phase}`, { percent: Math.round(progress * 100) })}</p>
         </div>
       )}
 
@@ -123,14 +127,7 @@ export function UploadForm({ userId, maxUploadBytes, maxVideoSeconds, disabled, 
           </Button>
         )}
         <Button type="button" onClick={submit} disabled={!file || busy || disabled}>
-          {busy ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              {phase === "starting" ? t("upload.starting") : t("transcription.processing")}
-            </>
-          ) : (
-            t("upload.start")
-          )}
+          {busy ? t("transcription.processing") : t("upload.start")}
         </Button>
       </div>
     </div>

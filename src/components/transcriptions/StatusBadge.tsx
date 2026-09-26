@@ -1,5 +1,4 @@
 import { Badge, cn, useLanguage } from "@pacific-code-labs/ujto-ds";
-import { Loader2 } from "lucide-react";
 
 const STYLES: Record<string, string> = {
   completed: "bg-success text-success-foreground hover:bg-success",
@@ -22,7 +21,7 @@ export function StatusBadge({ status, className }: { status: string; className?:
   const running = status === "processing" || status === "pending" || status === "awaiting_upload";
   return (
     <Badge className={cn("gap-1 text-xs", STYLES[status] ?? STYLES.pending, className)}>
-      {running && <Loader2 className="h-3 w-3 animate-spin" />}
+      {running && <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-current" aria-hidden="true" />}
       {LABEL_KEYS[status] ? t(LABEL_KEYS[status]) : status}
     </Badge>
   );

@@ -1,4 +1,4 @@
-import { Badge, Button, Card, CardContent, PageHeader, useLanguage, useLocalized } from "@pacific-code-labs/ujto-ds";
+import { Badge, Button, Card, CardContent, ListSkeleton, PageHeader, useLanguage, useLocalized } from "@pacific-code-labs/ujto-ds";
 import { LifeBuoy, Plus } from "lucide-react";
 import { Link } from "wouter";
 import { useSupportTickets } from "@/hooks/useSupport";
@@ -28,7 +28,7 @@ export default function SupportList() {
         }
       />
       {tickets.isLoading ? (
-        <p className="text-muted-foreground">{t("common.loading")}</p>
+        <ListSkeleton rows={3} label={t("common.loading")} />
       ) : tickets.error ? (
         <p className="text-destructive">{t("app.support.loadError")}</p>
       ) : !tickets.data?.length ? (

@@ -1,3 +1,4 @@
+import { ShellSkeleton } from "@pacific-code-labs/ujto-ds";
 import { useEffect, type ReactNode } from "react";
 import { useLocation } from "wouter";
 import {
@@ -37,13 +38,10 @@ import { getBranding } from "@/repositories/content.repository";
 import { NotificationDropdown } from "./NotificationDropdown";
 import { LanguageToggle, ThemeToggle } from "./toggles";
 
+/** While the session resolves: the shell's shape, not a spinner. */
 export function FullPageSpinner() {
   const { t } = useLanguage();
-  return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" aria-label={t("common.loading")} />
-    </div>
-  );
+  return <ShellSkeleton label={t("common.loading")} />;
 }
 
 /** Signed-in area: sends visitors to /login (keeping where they were going) and checks email verification. */

@@ -44,7 +44,14 @@ export function probeDuration(file: File, type: string): Promise<number | undefi
   });
 }
 
-export type UploadPhase = "uploading" | "starting";
+export type UploadPhase = "preparing" | "uploading" | "starting";
+
+/** One bar for the whole upload: preparing 0–5 %, bytes uploaded 5–95 %, starting the job 95–100 %. */
+export function uploadPercent(phase: UploadPhase, uploadedFraction: number): number {
+  if (phase === "preparing") return 3;
+  if (phase === "starting") return 97;
+  return Math.round(5 + Math.min(1, Math.max(0, uploadedFraction)) * 90);
+}
 
 /**
  * Upload a local file: reserve the job, POST the file straight to S3, start it.

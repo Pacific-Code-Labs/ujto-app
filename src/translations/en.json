@@ -435,7 +435,8 @@
       "tooLong": "This file is longer than your plan allows ({{minutes}} minutes).",
       "failed": "The upload failed. Check your connection and try again.",
       "cancelled": "Upload cancelled."
-    }
+    },
+    "preparing": "Preparing the file…"
   },
   "validation": {
     "emailInvalid": "Please enter a valid email address",
@@ -495,7 +496,8 @@
         "probing": "Reading the link…",
         "uploading": "Downloading and uploading…",
         "starting": "Starting transcription…",
-        "queueing": "Sending…"
+        "queueing": "Sending…",
+        "preparing": "Preparing…"
       },
       "downloading": "Downloading on your computer… {{percent}}%"
     },

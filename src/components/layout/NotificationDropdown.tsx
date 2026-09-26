@@ -1,3 +1,4 @@
+import { ListSkeleton } from "@pacific-code-labs/ujto-ds";
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Bell, Check, CheckCheck } from 'lucide-react';
@@ -158,8 +159,8 @@ export function NotificationDropdown() {
         
         <ScrollArea className="h-[300px]">
           {isLoading ? (
-            <div className="p-4 text-center text-sm text-muted-foreground">
-              {t('common.loading')}
+            <div className="p-3">
+              <ListSkeleton rows={3} rowClassName="border-0 p-2" label={t('common.loading')} />
             </div>
           ) : notifications.length === 0 ? (
             <div className="p-4 text-center">

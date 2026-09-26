@@ -1,3 +1,4 @@
+import { ActivityBar, DetailSkeleton } from "@pacific-code-labs/ujto-ds";
 import { useState } from "react";
 import {
   Button,
@@ -12,7 +13,7 @@ import {
   useToast,
 } from "@pacific-code-labs/ujto-ds";
 import { useQueryClient } from "@tanstack/react-query";
-import { ArrowLeft, BarChart3, Check, Clock, Copy, Loader2, Pencil, Trash2, X } from "lucide-react";
+import { ArrowLeft, BarChart3, Check, Clock, Copy, Pencil, Trash2, X } from "lucide-react";
 import { Link, useLocation, useParams } from "wouter";
 import { DownloadMenu } from "@/components/transcriptions/DownloadMenu";
 import { ErrorNotice } from "@/components/transcriptions/ErrorNotice";
@@ -40,8 +41,8 @@ export default function TranscriptionDetail() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center py-16">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <div className="mx-auto max-w-4xl py-6">
+        <DetailSkeleton label={t("common.loading")} />
       </div>
     );
   }
@@ -157,12 +158,13 @@ export default function TranscriptionDetail() {
 
       {isActive(job) && (
         <Card>
-          <CardContent className="flex items-center gap-4 p-6">
-            <Loader2 className="h-6 w-6 animate-spin text-primary" />
+          <CardContent className="space-y-3 p-6">
             <div>
               <p className="font-medium">{t(job.status === "awaiting_upload" ? "status.awaitingUpload" : "history.processingDesc")}</p>
               <p className="text-sm text-muted-foreground">{t("app.detail.keepWorking")}</p>
             </div>
+            {/* The worker reports no percentage: an activity bar, updated live when the job ends. */}
+            <ActivityBar label={t("history.processingDesc")} />
           </CardContent>
         </Card>
       )}

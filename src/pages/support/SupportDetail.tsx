@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { Badge, Button, cn, PageHeader, Textarea, useLanguage, useLocalized } from "@pacific-code-labs/ujto-ds";
+import { Badge, Button, cn, DetailSkeleton, PageHeader, Textarea, useLanguage, useLocalized } from "@pacific-code-labs/ujto-ds";
 import { ArrowLeft, Loader2, Paperclip } from "lucide-react";
 import { Link, useParams } from "wouter";
 import { useAuth } from "@/hooks/useAuth";
@@ -35,7 +35,7 @@ export default function SupportDetail() {
     }
   };
 
-  if (ticket.isLoading) return <p className="text-muted-foreground">{t("common.loading")}</p>;
+  if (ticket.isLoading) return <div className="mx-auto max-w-3xl"><DetailSkeleton label={t("common.loading")} /></div>;
   if (!ticket.data) return <p className="text-destructive">{t("app.support.loadError")}</p>;
   const tk = ticket.data;
   const closed = tk.status === "closed";

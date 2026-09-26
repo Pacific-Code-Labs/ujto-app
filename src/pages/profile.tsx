@@ -1,3 +1,4 @@
+import { FormSkeleton } from "@pacific-code-labs/ujto-ds";
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -85,8 +86,8 @@ export default function Profile() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center py-16">
-        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
+      <div className="mx-auto max-w-3xl py-6">
+        <FormSkeleton fields={5} label={t("common.loading")} />
       </div>
     );
   }

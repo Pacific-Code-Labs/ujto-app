@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Alert, AlertDescription, Button, Input, Label, Progress, useLanguage } from "@pacific-code-labs/ujto-ds";
-import { Laptop, Loader2 } from "lucide-react";
+import { ActivityBar, Alert, AlertDescription, Button, Input, Label, Progress, useLanguage } from "@pacific-code-labs/ujto-ds";
+import { Laptop } from "lucide-react";
 import { Link } from "wouter";
 import type { Transcription } from "@/lib/api-types";
 import { onDesktopProgress, useDesktopBridge, useDesktopDownloads } from "@/services/desktop.service";
@@ -15,7 +15,16 @@ interface Props {
   onError: (message: string) => void;
 }
 
-type Phase = "probing" | "uploading" | "starting" | "queueing";
+type Phase = "probing" | "preparing" | "uploading" | "starting" | "queueing";
+
+/** Desktop flow as one bar: reading the link 3 %, download 5–55 %, upload 55–95 %, starting 97 %. */
+function linkPercent(phase: Phase, progress: { phase: string; fraction: number } | null): number | null {
+  if (phase === "queueing") return null; // server-side link: no measurable progress
+  if (phase === "probing" || phase === "preparing") return 3;
+  if (phase === "starting") return 97;
+  const fraction = Math.min(1, Math.max(0, progress?.fraction ?? 0));
+  return progress?.phase === "uploading" ? Math.round(55 + fraction * 40) : Math.round(5 + fraction * 50);
+}
 
 /**
  * Paste a link. In the desktop app the media is downloaded on the user's computer (their own
@@ -82,24 +91,24 @@ export function LinkForm({ userId, maxVideoSeconds, initialUrl = "", disabled, o
           disabled={disabled || phase !== null}
         />
       </div>
-      {progress && phase === "uploading" && (
-        <div className="space-y-1">
-          <Progress value={Math.round(progress.fraction * 100)} />
+      {phase && (
+        // One bar for the whole flow instead of a spinner; indeterminate while the server queues a link.
+        <div className="space-y-1" aria-live="polite">
+          {linkPercent(phase, progress) === null ? (
+            <ActivityBar label={t(`app.new.phase.${phase}`)} />
+          ) : (
+            <Progress value={linkPercent(phase, progress)!} className="h-2" aria-label={t(`app.new.phase.${phase}`)} />
+          )}
           <p className="text-xs text-muted-foreground">
-            {t(progress.phase === "uploading" ? "upload.uploading" : "app.new.downloading", { percent: Math.round(progress.fraction * 100) })}
+            {phase === "uploading" && progress
+              ? t(progress.phase === "uploading" ? "upload.uploading" : "app.new.downloading", { percent: Math.round(progress.fraction * 100) })
+              : t(`app.new.phase.${phase}`)}
           </p>
         </div>
       )}
       <div className="flex justify-end">
         <Button type="submit" disabled={!url.trim() || disabled || phase !== null}>
-          {phase ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              {t(`app.new.phase.${phase}`)}
-            </>
-          ) : (
-            t("app.new.transcribeLink")
-          )}
+          {phase ? t(`app.new.phase.${phase}`) : t("app.new.transcribeLink")}
         </Button>
       </div>
     </form>

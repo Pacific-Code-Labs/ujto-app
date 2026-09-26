@@ -435,7 +435,8 @@
       "tooLong": "Este archivo supera la duración permitida por tu plan ({{minutes}} minutos).",
       "failed": "La subida falló. Revisa tu conexión e inténtalo de nuevo.",
       "cancelled": "Subida cancelada."
-    }
+    },
+    "preparing": "Preparando el archivo…"
   },
   "validation": {
     "emailInvalid": "Ingresa un correo electrónico válido",
@@ -495,7 +496,8 @@
         "probing": "Leyendo el enlace…",
         "uploading": "Descargando y subiendo…",
         "starting": "Iniciando la transcripción…",
-        "queueing": "Enviando…"
+        "queueing": "Enviando…",
+        "preparing": "Preparando…"
       },
       "downloading": "Descargando en tu computadora… {{percent}}%"
     },
