@@ -9,16 +9,27 @@ import plans from "@/content/plans.json";
 import help from "@/content/help.json";
 import desktop from "@/content/desktop.json";
 import support from "@/content/support.json";
-import { loadPublishedContent, type BrandTheme, type MediaLibrary } from "@pacific-code-labs/ujto-ds";
+import { cachedPublishedContent, loadPublishedContent, type BrandTheme, type MediaLibrary } from "@pacific-code-labs/ujto-ds";
 import { PUBLIC_API } from "@/lib/config";
 
-// Published documents (edited online in the admin console) override the bundled JSON. Loaded
-// once before the first render (initContent); on any failure the bundled copy is used.
+// Published documents (edited online in the admin console) override the bundled JSON:
+// initContent() uses the last copy this browser saw (sync), refreshContent() fetches fresh ones
+// in the background and reports whether they changed (the caller re-renders).
+const BUNDLED: Record<string, unknown> = { branding, themes, media, overview, errors, plans, help, desktop, support };
 let published: Record<string, unknown> = {};
 const doc = <T>(key: string, bundled: T): T => (published[key] as T | undefined) ?? bundled;
 
-export async function initContent() {
-  published = (await loadPublishedContent(PUBLIC_API, "app")) ?? {};
+export function initContent() {
+  published = cachedPublishedContent("app") ?? {};
+}
+
+export async function refreshContent(): Promise<boolean> {
+  const fresh = await loadPublishedContent(PUBLIC_API, "app");
+  if (!fresh) return false;
+  // Changed = differs from what is on screen (the previous published copy, else the bundle).
+  const changed = Object.entries(fresh).some(([key, value]) => JSON.stringify(value) !== JSON.stringify(published[key] ?? BUNDLED[key]));
+  published = fresh;
+  return changed;
 }
 
 export type Branding = typeof branding;
