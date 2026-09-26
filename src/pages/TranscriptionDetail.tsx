@@ -153,7 +153,7 @@ export default function TranscriptionDetail() {
         </div>
       </div>
 
-      {job.status === "failed" && <ErrorNotice error={job.errorMessage} />}
+      {job.status === "failed" && <ErrorNotice error={job.errorMessage} transcriptionId={job.id} />}
 
       {isActive(job) && (
         <Card>

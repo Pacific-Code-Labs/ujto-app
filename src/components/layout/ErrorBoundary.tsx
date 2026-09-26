@@ -38,6 +38,14 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, State> {
             {this.state.error.stack}
           </pre>
         </details>
+        {/* A crash never reaches the API, so there is no server reference: the route and message
+            go into the ticket subject instead. */}
+        <a
+          href={`/${lang}/support/new?${new URLSearchParams({ category: "general", from: window.location.pathname, subject: this.state.error.message.slice(0, 150) })}`}
+          className="mr-3 mt-5 inline-block rounded-md border border-border px-5 py-2.5 hover:bg-muted"
+        >
+          {tr("report")}
+        </a>
         <button
           type="button"
           onClick={() => window.location.reload()}

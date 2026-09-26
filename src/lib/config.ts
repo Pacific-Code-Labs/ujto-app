@@ -8,3 +8,15 @@ if (!configuredApiBaseUrl && import.meta.env.PROD) {
 
 // Local default: the FastAPI dev server (be/api-be).
 export const API_BASE_URL = (configuredApiBaseUrl || "http://localhost:8000").replace(/\/$/, "");
+
+// Support API (support.<domain>, ujto-support-be): same Cognito token as the main API.
+export const SUPPORT_API_URL = ((import.meta.env.VITE_SUPPORT_API_URL as string | undefined) || "http://localhost:8001").replace(/\/$/, "");
+
+// Realtime hints (AppSync Events, events.<domain>): job status, notifications, support replies.
+const eventsUrl = ((import.meta.env.VITE_APPSYNC_EVENTS_URL as string | undefined) || "").replace(/\/+$/, "");
+export const EVENTS_ENDPOINT = eventsUrl ? (eventsUrl.endsWith("/event") ? eventsUrl : `${eventsUrl}/event`) : "";
+
+// Public API (anonymous, identity pool guests): published content edited in the admin console.
+const publicUrl = import.meta.env.VITE_PUBLIC_API_URL as string | undefined;
+const identityPoolId = import.meta.env.VITE_PUBLIC_IDENTITY_POOL_ID as string | undefined;
+export const PUBLIC_API = publicUrl && identityPoolId ? { url: publicUrl, identityPoolId } : null;

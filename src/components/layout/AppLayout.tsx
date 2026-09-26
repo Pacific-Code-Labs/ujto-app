@@ -21,6 +21,7 @@ import {
   History,
   LayoutDashboard,
   Laptop,
+  LifeBuoy,
   LogOut,
   Menu,
   PlusCircle,
@@ -30,6 +31,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useRequireEmailVerification } from "@/hooks/useEmailVerification";
+import { useRealtimeEvents } from "@/hooks/useRealtimeEvents";
 import { landingHref } from "@/lib/links";
 import { getBranding } from "@/repositories/content.repository";
 import { NotificationDropdown } from "./NotificationDropdown";
@@ -51,6 +53,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
   const { user, isAuthenticated, isLoading, logout } = useAuth();
   const { checkAndRedirect } = useRequireEmailVerification();
   const branding = getBranding();
+  useRealtimeEvents(isAuthenticated ? user?.id : undefined);
 
   useEffect(() => {
     if (isLoading) return;
@@ -101,6 +104,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
           icon: HelpCircle,
           items: [
             { href: "/help", label: t("app.nav.help"), icon: HelpCircle },
+            { href: "/support", label: t("app.nav.support"), icon: LifeBuoy },
             { href: "/desktop", label: t("app.nav.desktop"), icon: Laptop },
           ],
         },
