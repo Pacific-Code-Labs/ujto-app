@@ -10,7 +10,7 @@ const ACTIONS: Record<string, { href: string; labelKey: string }> = {
 };
 
 /** Explains why a job failed (copy from content/errors.json) and offers the next step. */
-export function ErrorNotice({ error }: { error?: string | null }) {
+export function ErrorNotice({ error, transcriptionId }: { error?: string | null; transcriptionId?: string }) {
   const { t } = useLanguage();
   const L = useLocalized();
   const entry = resolveError(error);
@@ -28,6 +28,14 @@ export function ErrorNotice({ error }: { error?: string | null }) {
           {action && action.href !== "/new" && (
             <Button asChild size="sm" variant="outline">
               <Link href={action.href}>{t(action.labelKey)}</Link>
+            </Button>
+          )}
+          {transcriptionId && (
+            <Button asChild size="sm" variant="ghost">
+              {/* The job id is the reference support uses to find the worker's audit/incident. */}
+              <Link href={`/support/new?${new URLSearchParams({ reference: transcriptionId, category: "transcription", from: `/transcriptions/${transcriptionId}` })}`}>
+                {t("app.support.report")}
+              </Link>
             </Button>
           )}
         </div>

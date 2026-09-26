@@ -12,7 +12,9 @@ import {
 import { ScrollArea } from "@pacific-code-labs/ujto-ds";
 import { Badge } from "@pacific-code-labs/ujto-ds";
 import { useLanguage } from "@pacific-code-labs/ujto-ds";
+import { useLocation } from 'wouter';
 import { useAuth } from '@/hooks/useAuth';
+import { isRealtimeConnected } from '@/services/realtime.service';
 import {
   listNotifications,
   markAllNotificationsRead,
@@ -20,7 +22,16 @@ import {
   queryKeys,
 } from '@/lib/api';
 
+/** Where a notification leads (its related id is a transcription or a support ticket). */
+function notificationHref(notification: { type: string; relatedId?: string | null }) {
+  if (!notification.relatedId) return null;
+  if (notification.type === 'support_reply') return `/support/${notification.relatedId}`;
+  if (notification.type.startsWith('transcription_')) return `/transcriptions/${notification.relatedId}`;
+  return null;
+}
+
 export function NotificationDropdown() {
+  const [, navigate] = useLocation();
   const { t } = useLanguage();
   const { user } = useAuth();
   const queryClient = useQueryClient();
@@ -31,7 +42,8 @@ export function NotificationDropdown() {
     queryKey: queryKeys.notifications(user?.id),
     queryFn: () => listNotifications(user!.id),
     enabled: !!user?.id,
-    refetchInterval: 30000, // Refetch every 30 seconds for real-time updates
+    // Realtime hints refetch the bell; polling is only the fallback when the socket is down.
+    refetchInterval: () => (isRealtimeConnected() ? 300_000 : 30_000),
   });
 
   // Mark single notification as read
@@ -85,6 +97,8 @@ export function NotificationDropdown() {
         return '✅';
       case 'transcription_failed':
         return '❌';
+      case 'support_reply':
+        return '💬';
       case 'system':
       default:
         return '🔔';
@@ -168,6 +182,8 @@ export function NotificationDropdown() {
                   if (!notification.isRead) {
                     handleMarkAsRead(notification.id);
                   }
+                  const href = notificationHref(notification);
+                  if (href) navigate(href);
                 }}
               >
                 <div className="flex items-start gap-3 w-full">

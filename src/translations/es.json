@@ -178,7 +178,8 @@
     "title": "Algo salió mal",
     "description": "La aplicación encontró un error y no pudo cargarse correctamente.",
     "details": "Detalles del error",
-    "reload": "Recargar página"
+    "reload": "Recargar página",
+    "report": "Reportar este problema"
   },
   "form": {
     "email": "Dirección de Email",
@@ -473,7 +474,8 @@
       "resources": "Recursos",
       "help": "Ayuda",
       "desktop": "App de escritorio",
-      "website": "Sitio de Ujtö̀"
+      "website": "Sitio de Ujtö̀",
+      "support": "Soporte"
     },
     "overview": {
       "maxLength": "Duración máxima por video",
@@ -522,6 +524,29 @@
     "desktop": {
       "running": "Estás usando la app de escritorio.",
       "yourSystem": "Tu sistema"
+    },
+    "support": {
+      "new": "Nueva solicitud",
+      "loadError": "No se pudieron cargar tus solicitudes de soporte.",
+      "category": "Tema",
+      "subject": "Asunto",
+      "description": "¿Qué pasó?",
+      "screenshots": "Capturas de pantalla (opcional)",
+      "fileRules": "Hasta 5 imágenes (JPG, PNG, WebP o GIF), de 5 MB cada una.",
+      "send": "Enviar solicitud",
+      "reference": "Referencia del error",
+      "team": "Soporte de Ujtö̀",
+      "you": "Tú",
+      "replyPlaceholder": "Escribe una respuesta…",
+      "sendReply": "Responder",
+      "addScreenshot": "Agregar una captura",
+      "report": "Reportar este problema",
+      "status": {
+        "open": "Abierta",
+        "in_progress": "En curso",
+        "resolved": "Resuelta",
+        "closed": "Cerrada"
+      }
     }
   }
 }

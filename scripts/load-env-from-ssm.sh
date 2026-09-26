@@ -89,6 +89,16 @@ if value="$(get_parameter 'site/landing-url')"; then
   add_line VITE_LANDING_URL site/landing-url "${value}"
 fi
 
+# Support area, realtime hints and published content (optional: the features degrade gracefully).
+while IFS=':' read -r variable key; do
+  if value="$(get_parameter "${key}")"; then add_line "${variable}" "${key}" "${value}"; fi
+done <<'OPTIONAL'
+VITE_SUPPORT_API_URL:support/url
+VITE_APPSYNC_EVENTS_URL:appsync/events-url
+VITE_PUBLIC_API_URL:public-api/url
+VITE_PUBLIC_IDENTITY_POOL_ID:public-api/identity-pool-id
+OPTIONAL
+
 if value="$(get_parameter 'stripe/public-key')"; then
   add_line VITE_STRIPE_PUBLIC_KEY stripe/public-key "${value}"
 else

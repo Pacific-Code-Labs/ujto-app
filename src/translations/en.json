@@ -178,7 +178,8 @@
     "title": "Something went wrong",
     "description": "The application encountered an error and couldn't load properly.",
     "details": "Error Details",
-    "reload": "Reload Page"
+    "reload": "Reload Page",
+    "report": "Report this problem"
   },
   "form": {
     "email": "Email Address",
@@ -473,7 +474,8 @@
       "resources": "Resources",
       "help": "Help",
       "desktop": "Desktop app",
-      "website": "Ujtö̀ website"
+      "website": "Ujtö̀ website",
+      "support": "Support"
     },
     "overview": {
       "maxLength": "Max length per video",
@@ -522,6 +524,29 @@
     "desktop": {
       "running": "You're using the desktop app.",
       "yourSystem": "Your system"
+    },
+    "support": {
+      "new": "New request",
+      "loadError": "Could not load your support requests.",
+      "category": "Topic",
+      "subject": "Subject",
+      "description": "What happened?",
+      "screenshots": "Screenshots (optional)",
+      "fileRules": "Up to 5 images (JPG, PNG, WebP or GIF), 5 MB each.",
+      "send": "Send request",
+      "reference": "Error reference",
+      "team": "Ujtö̀ support",
+      "you": "You",
+      "replyPlaceholder": "Write a reply…",
+      "sendReply": "Reply",
+      "addScreenshot": "Add a screenshot",
+      "report": "Report this problem",
+      "status": {
+        "open": "Open",
+        "in_progress": "In progress",
+        "resolved": "Resolved",
+        "closed": "Closed"
+      }
     }
   }
 }

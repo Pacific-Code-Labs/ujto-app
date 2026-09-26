@@ -27,6 +27,9 @@ import Overview from "@/pages/Overview";
 import Profile from "@/pages/profile";
 import TranscriptionDetail from "@/pages/TranscriptionDetail";
 import Transcriptions from "@/pages/Transcriptions";
+import SupportDetail from "@/pages/support/SupportDetail";
+import SupportList from "@/pages/support/SupportList";
+import SupportNew from "@/pages/support/SupportNew";
 
 export const LANGUAGES = ["en", "es"] as const;
 const TRANSLATIONS = { en, es };
@@ -65,6 +68,9 @@ function LocalizedRoutes() {
       <Route path="/billing" component={inShell(Billing)} />
       <Route path="/desktop" component={inShell(Desktop)} />
       <Route path="/help" component={inShell(Help)} />
+      <Route path="/support" component={inShell(SupportList)} />
+      <Route path="/support/new" component={inShell(SupportNew)} />
+      <Route path="/support/:id" component={inShell(SupportDetail)} />
       {/* Old dashboard URL from the single-site days */}
       <Route path="/dashboard">
         <Redirect to="/" replace />

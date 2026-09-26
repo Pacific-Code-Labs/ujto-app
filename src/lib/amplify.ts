@@ -1,6 +1,11 @@
 import { Amplify } from 'aws-amplify';
+import { EVENTS_ENDPOINT } from './config';
 
 const amplifyConfig = {
+  // Realtime hints subscribe with the user's ID token (the channel must be their own sub).
+  ...(EVENTS_ENDPOINT
+    ? { API: { Events: { endpoint: EVENTS_ENDPOINT, region: import.meta.env.VITE_AWS_REGION || 'us-east-1', defaultAuthMode: 'userPool' as const } } }
+    : {}),
   Auth: {
     Cognito: {
       region: import.meta.env.VITE_AWS_REGION || 'us-east-1',

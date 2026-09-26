@@ -2,12 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/useAuth";
 import { ApiError, queryKeys } from "@/lib/api";
 import { getTranscription, listTranscriptions } from "@/repositories/transcriptions.repository";
+import { activeJobPollMs } from "@/services/realtime.service";
 import { hasActiveJobs, isActive } from "@/services/transcription.service";
 
 const noRetryOnAuth = (count: number, error: unknown) =>
   !(error instanceof ApiError && [401, 403, 404].includes(error.status)) && count < 3;
 
-/** The user's transcriptions, newest first; polls every 5 s while any job is running. */
+/** The user's transcriptions, newest first. Realtime hints refetch it; while a job runs it also
+ *  polls (every 5 s without the socket, 30 s as a safety net with it). */
 export function useTranscriptions(pageSize = 50) {
   const { user } = useAuth();
   const query = useQuery({
@@ -16,7 +18,7 @@ export function useTranscriptions(pageSize = 50) {
     enabled: !!user?.id,
     staleTime: 0,
     retry: noRetryOnAuth,
-    refetchInterval: (q) => (hasActiveJobs(q.state.data?.transcriptions) ? 5000 : false),
+    refetchInterval: (q) => (hasActiveJobs(q.state.data?.transcriptions) ? activeJobPollMs() : false),
   });
   return { ...query, transcriptions: query.data?.transcriptions ?? [], total: query.data?.total ?? 0 };
 }
@@ -30,6 +32,6 @@ export function useTranscription(id: string | undefined) {
     enabled: !!user?.id && !!id,
     staleTime: 0,
     retry: noRetryOnAuth,
-    refetchInterval: (q) => (q.state.data && isActive(q.state.data) ? 4000 : false),
+    refetchInterval: (q) => (q.state.data && isActive(q.state.data) ? activeJobPollMs() : false),
   });
 }

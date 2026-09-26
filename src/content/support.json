@@ -1,0 +1,30 @@
+{
+  "title": { "en": "Support", "es": "Soporte" },
+  "intro": {
+    "en": "Tell us what went wrong or what you need. We answer here and you get a notification when we reply.",
+    "es": "Cuéntanos qué salió mal o qué necesitas. Respondemos aquí y recibes una notificación cuando contestamos."
+  },
+  "empty": {
+    "en": "You have no support requests yet.",
+    "es": "Todavía no tienes solicitudes de soporte."
+  },
+  "newIntro": {
+    "en": "Describe the problem with as much detail as you can. Screenshots help a lot.",
+    "es": "Describe el problema con el mayor detalle posible. Las capturas de pantalla ayudan mucho."
+  },
+  "referenceHint": {
+    "en": "We attached the error reference, so our team can find exactly what happened.",
+    "es": "Adjuntamos la referencia del error para que el equipo encuentre exactamente qué pasó."
+  },
+  "closedNotice": {
+    "en": "This request is closed. Open a new one if you still need help.",
+    "es": "Esta solicitud está cerrada. Abre una nueva si todavía necesitas ayuda."
+  },
+  "categories": [
+    { "id": "transcription", "label": { "en": "A transcription failed or looks wrong", "es": "Una transcripción falló o se ve mal" } },
+    { "id": "upload", "label": { "en": "Uploading a file", "es": "Subir un archivo" } },
+    { "id": "account", "label": { "en": "My account or sign-in", "es": "Mi cuenta o el inicio de sesión" } },
+    { "id": "billing", "label": { "en": "Plans and billing", "es": "Planes y facturación" } },
+    { "id": "general", "label": { "en": "Something else", "es": "Otra cosa" } }
+  ]
+}

@@ -6,12 +6,13 @@ import type { Notification, Transcription } from "./api-types";
 import type { UserResponse } from "./auth-schema";
 
 export class ApiError extends Error {
-  constructor(public status: number, message: string) {
+  /** Server-side request id for 5xx errors (X-Request-Id / body.reference): quoted in support tickets. */
+  constructor(public status: number, message: string, public reference?: string) {
     super(message);
   }
 }
 
-async function authHeader(forceRefresh = false): Promise<Record<string, string>> {
+export async function authHeader(forceRefresh = false): Promise<Record<string, string>> {
   try {
     const session = await fetchAuthSession({ forceRefresh });
     const idToken = session.tokens?.idToken?.toString();
@@ -38,15 +39,17 @@ async function authorizedFetch(method: string, path: string, body?: unknown): Pr
   return res;
 }
 
-async function toApiError(res: Response): Promise<ApiError> {
+export async function toApiError(res: Response): Promise<ApiError> {
   let message = res.statusText;
+  let reference = res.headers.get("X-Request-Id") ?? undefined;
   try {
     const data = await res.json();
     message = typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail ?? data);
+    reference = data.reference ?? reference;
   } catch {
     /* non-JSON error body */
   }
-  return new ApiError(res.status, message || `HTTP ${res.status}`);
+  return new ApiError(res.status, message || `HTTP ${res.status}`, res.status >= 500 ? reference : undefined);
 }
 
 export async function apiFetch<T>(method: string, path: string, body?: unknown): Promise<T> {
