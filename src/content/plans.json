@@ -7,8 +7,8 @@
       "price": "$0",
       "period": { "en": "forever", "es": "para siempre" },
       "features": [
-        { "en": "3 transcriptions per day", "es": "3 transcripciones por día" },
-        { "en": "Up to 10 minutes per video", "es": "Hasta 10 minutos por video" },
+        { "en": "30 minutes of transcription per day", "es": "30 minutos de transcripción al día" },
+        { "en": "Use them on one video or many", "es": "Úsalos en un video o en varios" },
         { "en": "Uploads up to 500 MB", "es": "Archivos de hasta 500 MB" },
         { "en": "Standard accuracy", "es": "Precisión estándar" },
         { "en": "Download as TXT", "es": "Descarga en TXT" }

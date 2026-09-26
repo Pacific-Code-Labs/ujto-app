@@ -1,5 +1,5 @@
 import { FormSkeleton } from "@pacific-code-labs/ujto-ds";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -19,9 +19,9 @@ import {
   FormMessage,
 } from "@pacific-code-labs/ujto-ds";
 import { Input } from "@pacific-code-labs/ujto-ds";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@pacific-code-labs/ujto-ds";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Drawer } from "@pacific-code-labs/ujto-ds";
 import { Badge } from "@pacific-code-labs/ujto-ds";
-import { Loader2, User, Mail, Crown, Calendar } from 'lucide-react';
+import { Loader2, User, Mail, Crown, Calendar, Pencil } from 'lucide-react';
 import { PageHeader } from "@pacific-code-labs/ujto-ds";
 
 const profileSchema = z.object({
@@ -37,6 +37,7 @@ export default function Profile() {
   const { toast } = useToast();
   const { t } = useLanguage();
   const queryClient = useQueryClient();
+  const [editing, setEditing] = useState(false);
 
   const form = useForm<ProfileForm>({
     resolver: zodResolver(profileSchema),
@@ -59,6 +60,7 @@ export default function Profile() {
       });
       
       await queryClient.invalidateQueries({ queryKey: queryKeys.profile });
+      setEditing(false);
     },
     onError: (error: any) => {
       toast({
@@ -112,14 +114,20 @@ export default function Profile() {
       <div className="space-y-6">
         {/* Profile Overview */}
         <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <User className="h-5 w-5" />
-              {t('profile.title')}
-            </CardTitle>
-            <CardDescription>
-              {t('profile.description')}
-            </CardDescription>
+          <CardHeader className="flex flex-row flex-wrap items-start justify-between gap-3 space-y-0">
+            <div className="space-y-1.5">
+              <CardTitle className="flex items-center gap-2">
+                <User className="h-5 w-5" />
+                {t('profile.title')}
+              </CardTitle>
+              <CardDescription>
+                {t('profile.description')}
+              </CardDescription>
+            </div>
+            <Button variant="outline" size="sm" onClick={() => setEditing(true)}>
+              <Pencil className="mr-2 h-4 w-4" />
+              {t('profile.edit.title')}
+            </Button>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -153,17 +161,29 @@ export default function Profile() {
           </CardContent>
         </Card>
 
-        {/* Edit Profile Form */}
-        <Card>
-          <CardHeader>
-            <CardTitle>{t('profile.edit.title')}</CardTitle>
-            <CardDescription>
-              {t('profile.edit.description')}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
+      </div>
+
+      {/* Editing lives in a drawer: the profile page stays a clean summary. */}
+      <Drawer
+        open={editing}
+        onOpenChange={setEditing}
+        title={t('profile.edit.title')}
+        description={t('profile.edit.description')}
+        closeLabel={t('common.close')}
+        footer={
+          <>
+            <Button type="button" variant="outline" onClick={() => setEditing(false)}>
+              {t('common.cancel')}
+            </Button>
+            <Button type="submit" form="profile-form" disabled={updateProfileMutation.isPending}>
+              {updateProfileMutation.isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {t('profile.edit.submit')}
+            </Button>
+          </>
+        }
+      >
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <form id="profile-form" onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField
                   control={form.control}
                   name="username"
@@ -215,18 +235,9 @@ export default function Profile() {
                     </span>
                   </div>
                 </div>
-
-                <Button type="submit" className="w-full" disabled={updateProfileMutation.isPending}>
-                  {updateProfileMutation.isPending && (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  )}
-                  {t('profile.edit.submit')}
-                </Button>
               </form>
             </Form>
-          </CardContent>
-        </Card>
-      </div>
+      </Drawer>
     </div>
   );
 }

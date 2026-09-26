@@ -149,7 +149,8 @@
     "error": "Error",
     "success": "Éxito",
     "refresh": "Actualizar",
-    "comingSoon": "Próximamente"
+    "comingSoon": "Próximamente",
+    "close": "Cerrar"
   },
   "dashboard": {
     "welcomeBack": "¡Bienvenido de nuevo, {{name}}!",
@@ -160,9 +161,12 @@
     "pro": "Pro",
     "upgrade": "Actualizar",
     "dailyUsage": "Uso Diario",
-    "dailyLimitReached": "Límite diario alcanzado",
+    "dailyLimitReached": "Usaste los {{minutes}} minutos de hoy. Se renuevan a las 00:00 UTC.",
     "totalTranscriptions": "Transcripciones Totales",
-    "memberSince": "Miembro Desde"
+    "memberSince": "Miembro Desde",
+    "minutesLeft": "Minutos disponibles hoy",
+    "minutesOf": "{{left}} de {{total}} min",
+    "minutesLeftToday": "Te quedan {{left}} de {{total}} minutos hoy · se renuevan a las 00:00 UTC"
   },
   "download": {
     "button": "Descargar",
@@ -238,13 +242,13 @@
     "emailRequired": "Por favor ingresa tu dirección de email",
     "settingUp": "Configurando...",
     "returnHome": "Volver al Inicio",
-    "videoTooLong": "El video tiene una duración muy larga. Por favor, usa un video de máximo 10 minutos en el plan Gratis (2 horas en Pro).",
+    "videoTooLong": "El video dura más que los minutos que te quedan hoy (Gratis: 30 minutos al día; Pro: hasta 2 horas por video).",
     "unknownError": "Algo salió mal. Inténtalo de nuevo.",
     "downloadTitle": "Descarga iniciada"
   },
   "meta": {
     "title": "Ujtö̀ — Panel",
-    "description": "Convierte cualquier URL de video en una transcripción precisa en segundos. 3 transcripciones gratis por día."
+    "description": "Convierte cualquier URL de video en una transcripción precisa en segundos. 30 minutos gratis de transcripción al día."
   },
   "nav": {
     "features": "Características",
@@ -308,8 +312,8 @@
     "free": {
       "title": "Gratis",
       "subtitle": "Perfecto para probar",
-      "transcriptions": "3 transcripciones por día",
-      "duration": "Hasta 10 minutos por video",
+      "transcriptions": "30 minutos de transcripción al día",
+      "duration": "Úsalos en un video o en varios",
       "accuracy": "Precisión básica",
       "format": "Descarga como TXT",
       "button": "Plan Actual"
@@ -432,7 +436,7 @@
     "errors": {
       "notMedia": "Elige un archivo de audio o video.",
       "tooBig": "Este archivo supera el tamaño permitido por tu plan ({{size}} MB).",
-      "tooLong": "Este archivo supera la duración permitida por tu plan ({{minutes}} minutos).",
+      "tooLong": "Este archivo dura más que los minutos que te quedan hoy ({{minutes}} min).",
       "failed": "La subida falló. Revisa tu conexión e inténtalo de nuevo.",
       "cancelled": "Subida cancelada."
     },
@@ -479,7 +483,7 @@
       "support": "Soporte"
     },
     "overview": {
-      "maxLength": "Duración máxima por video",
+      "maxLength": "Video más largo ahora",
       "recent": "Transcripciones recientes",
       "seeAll": "Ver todas"
     },

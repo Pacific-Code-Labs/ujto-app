@@ -20,11 +20,15 @@ export default function Overview() {
   const stats = [
     {
       icon: Gauge,
-      label: t("dashboard.dailyUsage"),
-      value: usage ? `${usage.usedToday} / ${isUnlimited ? "∞" : usage.dailyLimit}` : "…",
+      label: t("dashboard.minutesLeft"),
+      value: usage
+        ? isUnlimited
+          ? "∞"
+          : t("dashboard.minutesOf", { left: Math.floor((usage.remainingSecondsToday ?? 0) / 60), total: Math.round((usage.dailySeconds ?? 0) / 60) })
+        : "—",
     },
-    { icon: Clock, label: t("app.overview.maxLength"), value: usage ? t("app.minutes", { count: usage.maxVideoSeconds / 60 }) : "…" },
-    { icon: ArrowRight, label: t("dashboard.plan"), value: usage ? t(`dashboard.${usage.plan === "pro" ? "pro" : "free"}`) : "…" },
+    { icon: Clock, label: t("app.overview.maxLength"), value: usage ? t("app.minutes", { count: Math.floor(usage.maxVideoSeconds / 60) }) : "—" },
+    { icon: ArrowRight, label: t("dashboard.plan"), value: usage ? t(`dashboard.${usage.plan === "pro" ? "pro" : "free"}`) : "—" },
   ];
 
   return (

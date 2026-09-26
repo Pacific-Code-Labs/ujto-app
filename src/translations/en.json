@@ -149,7 +149,8 @@
     "error": "Error",
     "success": "Success",
     "refresh": "Refresh",
-    "comingSoon": "Coming Soon"
+    "comingSoon": "Coming Soon",
+    "close": "Close"
   },
   "dashboard": {
     "welcomeBack": "Welcome back, {{name}}!",
@@ -160,9 +161,12 @@
     "pro": "Pro",
     "upgrade": "Upgrade",
     "dailyUsage": "Daily Usage",
-    "dailyLimitReached": "Daily limit reached",
+    "dailyLimitReached": "You used today's {{minutes}} minutes. They renew at 00:00 UTC.",
     "totalTranscriptions": "Total Transcriptions",
-    "memberSince": "Member Since"
+    "memberSince": "Member Since",
+    "minutesLeft": "Minutes left today",
+    "minutesOf": "{{left}} of {{total}} min",
+    "minutesLeftToday": "{{left}} of {{total}} minutes left today · renews at 00:00 UTC"
   },
   "download": {
     "button": "Download",
@@ -238,13 +242,13 @@
     "emailRequired": "Please enter your email address",
     "settingUp": "Setting up...",
     "returnHome": "Return to Home",
-    "videoTooLong": "Video is too long. Please use a video of maximum 10 minutes on the Free plan (2 hours on Pro).",
+    "videoTooLong": "The video is longer than the minutes you have left today (Free: 30 minutes a day; Pro: up to 2 hours per video).",
     "unknownError": "Something went wrong. Please try again.",
     "downloadTitle": "Download started"
   },
   "meta": {
     "title": "Ujtö̀ — Dashboard",
-    "description": "Turn any video URL into an accurate transcript in seconds. 3 free transcriptions per day."
+    "description": "Turn any video URL into an accurate transcript in seconds. 30 free minutes of transcription a day."
   },
   "nav": {
     "features": "Features",
@@ -308,8 +312,8 @@
     "free": {
       "title": "Free",
       "subtitle": "Perfect for trying out",
-      "transcriptions": "3 transcriptions per day",
-      "duration": "Up to 10 minutes per video",
+      "transcriptions": "30 minutes of transcription per day",
+      "duration": "Use them on one video or many",
       "accuracy": "Basic accuracy",
       "format": "Download as TXT",
       "button": "Current Plan"
@@ -432,7 +436,7 @@
     "errors": {
       "notMedia": "Choose an audio or video file.",
       "tooBig": "This file is larger than your plan allows ({{size}} MB).",
-      "tooLong": "This file is longer than your plan allows ({{minutes}} minutes).",
+      "tooLong": "This file is longer than the minutes you have left today ({{minutes}} min).",
       "failed": "The upload failed. Check your connection and try again.",
       "cancelled": "Upload cancelled."
     },
@@ -479,7 +483,7 @@
       "support": "Support"
     },
     "overview": {
-      "maxLength": "Max length per video",
+      "maxLength": "Longest video now",
       "recent": "Recent transcriptions",
       "seeAll": "See all"
     },

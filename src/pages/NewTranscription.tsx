@@ -1,4 +1,4 @@
-import { Alert, AlertDescription, Card, CardContent, PageHeader, Tabs, TabsContent, TabsList, TabsTrigger, useLanguage, useToast } from "@pacific-code-labs/ujto-ds";
+import { Alert, AlertDescription, Card, CardContent, PageHeader, Progress, Tabs, TabsContent, TabsList, TabsTrigger, useLanguage, useToast } from "@pacific-code-labs/ujto-ds";
 import { useQueryClient } from "@tanstack/react-query";
 import { Link2, Upload } from "lucide-react";
 import { useLocation, useSearch } from "wouter";
@@ -29,14 +29,14 @@ export default function NewTranscription() {
     toast({ title: t("transcription.error.title"), description: message, variant: "destructive" });
 
   if (!user) return null;
-  const limits = { maxUploadBytes: usage?.maxUploadBytes ?? 500 * 1024 * 1024, maxVideoSeconds: usage?.maxVideoSeconds ?? 600 };
+  const limits = { maxUploadBytes: usage?.maxUploadBytes ?? 500 * 1024 * 1024, maxVideoSeconds: usage?.maxVideoSeconds ?? 0 };
 
   return (
     <div className="mx-auto max-w-3xl">
       <PageHeader title={t("transcription.newTranscription")} description={t("upload.description")} />
       {isLimitReached && (
         <Alert className="mb-4">
-          <AlertDescription>{t("dashboard.dailyLimitReached")}</AlertDescription>
+          <AlertDescription>{t("dashboard.dailyLimitReached", { minutes: Math.round((usage?.dailySeconds ?? 0) / 60) })}</AlertDescription>
         </Alert>
       )}
       <Card>
@@ -68,10 +68,17 @@ export default function NewTranscription() {
           </Tabs>
         </CardContent>
       </Card>
-      {usage && (
-        <p className="mt-3 text-center text-sm text-muted-foreground">
-          {t("dashboard.dailyUsage")}: {usage.usedToday} / {usage.dailyLimit ?? "∞"}
-        </p>
+      {usage && usage.dailySeconds !== null && (
+        // Today's minute budget: running jobs already hold their minutes.
+        <div className="mt-4 space-y-1">
+          <Progress value={Math.min(100, (usage.usedSecondsToday / usage.dailySeconds) * 100)} className="h-2" />
+          <p className="text-center text-sm text-muted-foreground">
+            {t("dashboard.minutesLeftToday", {
+              left: Math.floor((usage.remainingSecondsToday ?? 0) / 60),
+              total: Math.round(usage.dailySeconds / 60),
+            })}
+          </p>
+        </div>
       )}
     </div>
   );

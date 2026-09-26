@@ -10,7 +10,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@pacific-code-labs/ujto-ds";
-import { ScrollArea } from "@pacific-code-labs/ujto-ds";
 import { Badge } from "@pacific-code-labs/ujto-ds";
 import { useLanguage } from "@pacific-code-labs/ujto-ds";
 import { useLocation } from 'wouter';
@@ -157,7 +156,8 @@ export function NotificationDropdown() {
         
         <DropdownMenuSeparator />
         
-        <ScrollArea className="h-[300px]">
+        {/* Grows with the list; scrolls only past 360 px (a fixed height left empty space). */}
+        <div className="max-h-[360px] overflow-y-auto overscroll-contain">
           {isLoading ? (
             <div className="p-3">
               <ListSkeleton rows={3} rowClassName="border-0 p-2" label={t('common.loading')} />
@@ -224,7 +224,7 @@ export function NotificationDropdown() {
               </DropdownMenuItem>
             ))
           )}
-        </ScrollArea>
+        </div>
       </DropdownMenuContent>
     </DropdownMenu>
   );

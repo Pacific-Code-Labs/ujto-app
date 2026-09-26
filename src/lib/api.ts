@@ -275,11 +275,15 @@ export type DownloadFormat = "txt" | "srt" | "vtt";
 
 export interface Usage {
   plan: "free" | "pro" | string;
-  dailyLimit: number | null; // null = unlimited
-  usedToday: number;
-  remainingToday: number | null; // null = unlimited
+  /** Transcription minutes per day, in seconds (null = unlimited). Resets 00:00 UTC. */
+  dailySeconds: number | null;
+  usedSecondsToday: number; // completed jobs' real length + minutes held by running jobs
+  remainingSecondsToday: number | null; // null = unlimited
+  usedToday: number; // jobs today (informational)
   resetsAt: string;
+  /** Longest video accepted right now: the plan cap bounded by what is left today. */
   maxVideoSeconds: number;
+  planMaxVideoSeconds: number;
   maxUploadBytes: number;
   downloadFormats: DownloadFormat[];
   priorityProcessing: boolean;
@@ -288,11 +292,13 @@ export interface Usage {
 
 interface UsageDto {
   plan: string;
-  daily_limit: number | null;
+  daily_seconds: number | null;
+  used_seconds_today: number;
+  remaining_seconds_today: number | null;
   used_today: number;
-  remaining_today: number | null;
   resets_at: string;
   max_video_seconds: number;
+  plan_max_video_seconds?: number;
   max_upload_bytes?: number;
   download_formats: DownloadFormat[];
   priority_processing: boolean;
@@ -303,11 +309,13 @@ export async function getUsage(userId: string): Promise<Usage> {
   const d = await apiFetch<UsageDto>("GET", `${u(userId)}/usage`);
   return {
     plan: d.plan,
-    dailyLimit: d.daily_limit,
+    dailySeconds: d.daily_seconds,
+    usedSecondsToday: d.used_seconds_today,
+    remainingSecondsToday: d.remaining_seconds_today,
     usedToday: d.used_today,
-    remainingToday: d.remaining_today,
     resetsAt: d.resets_at,
     maxVideoSeconds: d.max_video_seconds,
+    planMaxVideoSeconds: d.plan_max_video_seconds ?? d.max_video_seconds,
     maxUploadBytes: d.max_upload_bytes ?? 500 * 1024 * 1024,
     downloadFormats: d.download_formats,
     priorityProcessing: d.priority_processing,
