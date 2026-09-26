@@ -1,5 +1,5 @@
 {
-  "status": "coming-soon",
+  "status": "available",
   "title": {
     "en": "Ujtö̀ for desktop",
     "es": "Ujtö̀ para escritorio"
@@ -8,7 +8,7 @@
     "en": "The full Ujtö̀ dashboard in a desktop app, plus one thing the web can't do: paste a YouTube link and it downloads the audio **from your own computer** and sends it for transcription.",
     "es": "Todo el panel de Ujtö̀ en una app de escritorio, más algo que la web no puede hacer: pega un enlace de YouTube y descarga el audio **desde tu propia computadora** y lo envía a transcribir."
   },
-  "releaseBaseUrl": "https://github.com/Pacific-Code-Labs/ujto-desktop/releases/latest/download/",
+  "releaseBaseUrl": "https://media.ujto.jcampos.dev/downloads/desktop/latest/",
   "platforms": [
     {
       "os": "mac",
