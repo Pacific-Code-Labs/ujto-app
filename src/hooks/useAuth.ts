@@ -1,4 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { languageFromPath } from '@pacific-code-labs/ujto-ds';
 import { ApiError, completeEmailVerification, getProfile, queryKeys } from '@/lib/api';
 import { signUp, signIn, signOut, getCurrentUser, fetchAuthSession, confirmSignUp, resetPassword, confirmResetPassword, resendSignUpCode } from 'aws-amplify/auth';
 import type { 
@@ -64,6 +65,8 @@ export function useAuth() {
             given_name: data.firstName || '',
             family_name: data.lastName || '',
             preferred_username: data.username || '', // Store username as preferred_username
+            // Language of Cognito's emails (verification, password reset): the page's language.
+            locale: languageFromPath(window.location.pathname, ['en', 'es'] as const) ?? 'en',
           },
         },
       });
