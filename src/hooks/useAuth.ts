@@ -166,8 +166,14 @@ export function useAuth() {
         throw error;
       }
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: queryKeys.profile });
+    onSuccess: (data) => {
+      // Seed the profile before the page navigates: a refetch alone leaves the cached null
+      // (signed out) in place, and the signed-in shell would bounce back to /login.
+      if (data.user) {
+        queryClient.setQueryData(queryKeys.profile, data.user);
+      } else {
+        queryClient.invalidateQueries({ queryKey: queryKeys.profile });
+      }
     },
   });
 
